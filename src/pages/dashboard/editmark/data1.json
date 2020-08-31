@@ -1,0 +1,2072 @@
+[
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.00699460506439,
+          13.520531624809204
+        ]
+      },
+      "properties": { 
+          "tag":[
+          "pingpong-normal"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040049159"
+        },
+        "people": [],
+        "haveChronic": "true",
+        "villageId": "5e12b238eccd5f0004eea23e",
+        "villageName": "บ้านคลองพันเละ",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "76",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.00699460506439,
+            13.520531624809204
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041208",
+            "pcucode": "07918",
+            "hcode": "177"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeadfe",
+        "type": "House",
+        "timestamp": "2017-11-29T14:49:32.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.01876145601273,
+          13.512723519688377
+        ]
+      },
+      "properties": {
+        "tag":[
+          "pingpong-normal"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040282538"
+        },
+        "people": [],
+        "haveChronic": "falsh",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "104/1",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.01876145601273,
+            13.512723519688377
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "178"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeadff",
+        "type": "House",
+        "timestamp": "2015-11-04T11:25:11.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          99.99947369098663,
+          13.517928951523807
+        ]
+      },
+      "properties": {
+        "tag":[
+          "pingpong-risk"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040247457"
+        },
+        "people": [],
+        "haveChronic": "pingpong0",
+        "villageId": "5e12b238eccd5f0004eea23e",
+        "villageName": "บ้านคลองพันเละ",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "11",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            99.99947369098663,
+            13.517928951523807
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041208",
+            "pcucode": "07918",
+            "hcode": "180"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae00",
+        "type": "House",
+        "timestamp": "2017-10-18T10:54:08.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.02223759889603,
+          13.513401588390376
+        ]
+      },
+      "properties": {
+        "tag":[
+          "pingpong-risk"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040061248"
+        },
+        "people": [],
+        "haveChronic": "falsh",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "2",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.02223759889603,
+            13.513401588390376
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "181"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae01",
+        "type": "House",
+        "timestamp": "2017-09-21T11:56:17.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.02052903175354,
+          13.519634514181766
+        ]
+      },
+      "properties": {
+        "tag":[
+          "pingpong-risk"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040061281"
+        },
+        "people": [],
+        "haveChronic": "true",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "6",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.02052903175354,
+            13.519634514181766
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "183"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae02",
+        "type": "House",
+        "timestamp": "2015-11-04T10:04:15.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.01868098974228,
+          13.520294308082246
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-risk"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040207773"
+        },
+        "people": [],
+        "haveChronic": "true",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "6/2",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.01868098974228,
+            13.520294308082246
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "184"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae03",
+        "type": "House",
+        "timestamp": "2017-11-30T15:28:13.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.0195500254631,
+          13.519154662924882
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-0"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040248186"
+        },
+        "people": [],
+        "haveChronic": "pingpongblack",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "6/3",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.0195500254631,
+            13.519154662924882
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "185"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae05",
+        "type": "House",
+        "timestamp": "2015-11-04T10:05:24.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.01489371061325,
+          13.523311603151011
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-0"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040213218"
+        },
+        "people": [],
+        "haveChronic": "pingpongblack",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "21/2",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.01489371061325,
+            13.523311603151011
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "186"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae06",
+        "type": "House",
+        "timestamp": "2017-11-30T14:59:56.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.02233684062958,
+          13.512697440084409
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-1"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040062503"
+        },
+        "people": [],
+        "haveChronic": "true",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "131",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.02233684062958,
+            13.512697440084409
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "187"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae07",
+        "type": "House",
+        "timestamp": "2015-11-04T13:17:08.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.01339703798294,
+          13.520283876572345
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-1"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040283011"
+        },
+        "people": [],
+        "haveChronic": "falsh",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "165/3",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.01339703798294,
+            13.520283876572345
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "188"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae08",
+        "type": "House",
+        "timestamp": "2017-11-30T15:08:15.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.01999527215958,
+          13.510501527197913
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-1"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040061973"
+        },
+        "people": [],
+        "haveChronic": "pingpong0",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "75",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.01999527215958,
+            13.510501527197913
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "189"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae09",
+        "type": "House",
+        "timestamp": "2015-11-04T10:47:43.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.02196669578552,
+          13.50801088893906
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-2"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040256006"
+        },
+        "people": [],
+        "haveChronic": "falsh",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "171/1",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.02196669578552,
+            13.50801088893906
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "191"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae0b",
+        "type": "House",
+        "timestamp": "2015-07-26T11:35:13.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          99.99759614467621,
+          13.519997009871016
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-2"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040049451"
+        },
+        "people": [],
+        "haveChronic": "true",
+        "villageId": "5e12b238eccd5f0004eea23e",
+        "villageName": "บ้านคลองพันเละ",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "114",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            99.99759614467621,
+            13.519997009871016
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041208",
+            "pcucode": "07918",
+            "hcode": "192"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae0c",
+        "type": "House",
+        "timestamp": "2017-11-29T14:16:39.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.01335144042969,
+          13.524067876824448
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-2"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040060381"
+        },
+        "people": [],
+        "haveChronic": "true",
+        "villageId": "5e12b237eccd5f0004eea19e",
+        "villageName": "บ้านศาลไต้เซี่ย",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "41",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.01335144042969,
+            13.524067876824448
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041206",
+            "pcucode": "07918",
+            "hcode": "193"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae0d",
+        "type": "House",
+        "timestamp": "2017-11-30T14:41:36.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.02033859491348,
+          13.51704487066387
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-3"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040061612"
+        },
+        "people": [],
+        "haveChronic": "pingpongblack",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "40",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.02033859491348,
+            13.51704487066387
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "194"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae0e",
+        "type": "House",
+        "timestamp": "2015-11-04T10:54:23.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.02357870340347,
+          13.51355545755813
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-2"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040061370"
+        },
+        "people": [],
+        "haveChronic": "pingpongblack",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "15",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.02357870340347,
+            13.51355545755813
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "195"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae0f",
+        "type": "House",
+        "timestamp": "2015-11-04T10:13:26.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.02075433731079,
+          13.510144233045802
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-3"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040061892"
+        },
+        "people": [],
+        "haveChronic": "true",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "66",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.02075433731079,
+            13.510144233045802
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "196"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae10",
+        "type": "House",
+        "timestamp": "2015-11-04T10:46:47.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.02566546201706,
+          13.51406922338194
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-3"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040213498"
+        },
+        "people": [],
+        "haveChronic": "true",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "69/3",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.02566546201706,
+            13.51406922338194
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "197"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae11",
+        "type": "House",
+        "timestamp": "2015-11-04T11:17:43.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.01121371984482,
+          13.518708713336196
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-black"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040061787"
+        },
+        "people": [],
+        "haveChronic": " pingpong-1",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "55",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.01121371984482,
+            13.518708713336196
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "198"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae12",
+        "type": "House",
+        "timestamp": "2015-11-04T11:04:53.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.01356065273285,
+          13.520435133421268
+        ]
+      },
+      "properties": {
+        "tag":[
+          "pingpong-black"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040172678"
+        },
+        "people": [],
+        "haveChronic": "pingpong0",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "120",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.01356065273285,
+            13.520435133421268
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "199"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae13",
+        "type": "House",
+        "timestamp": "2017-11-30T15:07:09.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.00308394432068,
+          13.512895645003063
+        ]
+      },
+      "properties": {
+        "tag":[
+          "pingpong-black"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040060632"
+        },
+        "people": [],
+        "haveChronic": "falsh",
+        "villageId": "5e12b237eccd5f0004eea19e",
+        "villageName": "บ้านศาลไต้เซี่ย",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "66",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.00308394432068,
+            13.512895645003063
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041206",
+            "pcucode": "07918",
+            "hcode": "200"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae14",
+        "type": "House",
+        "timestamp": "2015-11-04T15:43:52.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.0214758515358,
+          13.509888650039223
+        ]
+      },
+      "properties": {
+        "tag":[
+          "pingpong-black"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040062678"
+        },
+        "people": [],
+        "haveChronic": "true",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "149",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.0214758515358,
+            13.509888650039223
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "201"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae15",
+        "type": "House",
+        "timestamp": "2015-07-26T11:32:42.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.02102792263031,
+          13.518541808012365
+        ]
+      },
+      "properties": {
+        "tag":[
+          "pingpong-black"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040062937"
+        },
+        "people": [],
+        "haveChronic": "falsh",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "180",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.02102792263031,
+            13.518541808012365
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "202"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae16",
+        "type": "House",
+        "timestamp": "2015-11-04T13:31:49.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.01504927873611,
+          13.51890952114901
+        ]
+      },
+      "properties": {
+        "tag":[
+          "pingpong-normal"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040062961"
+        },
+        "people": [],
+        "haveChronic": "pingpong0",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "189",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.01504927873611,
+            13.51890952114901
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "203"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae18",
+        "type": "House",
+        "timestamp": "2015-11-04T13:23:31.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          99.99546378850937,
+          13.516257279643153
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-normal"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040049132"
+        },
+        "people": [],
+        "haveChronic": "true",
+        "villageId": "5e12b238eccd5f0004eea23e",
+        "villageName": "บ้านคลองพันเละ",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "75",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            99.99546378850937,
+            13.516257279643153
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041208",
+            "pcucode": "07918",
+            "hcode": "204"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae19",
+        "type": "House",
+        "timestamp": "2017-11-29T14:12:52.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.02764225006104,
+          13.514984610506911
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-risk"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040211444"
+        },
+        "people": [],
+        "haveChronic": "falsh",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "144/2",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.02764225006104,
+            13.514984610506911
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "205"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae1a",
+        "type": "House",
+        "timestamp": "2015-11-04T13:15:34.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.00077724456787,
+          13.520776764916352
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-risk"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040049094"
+        },
+        "people": [],
+        "haveChronic": "pingpong0",
+        "villageId": "5e12b238eccd5f0004eea23e",
+        "villageName": "บ้านคลองพันเละ",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "71",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.00077724456787,
+            13.520776764916352
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041208",
+            "pcucode": "07918",
+            "hcode": "206"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae1b",
+        "type": "House",
+        "timestamp": "2017-11-29T14:20:58.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.01383155584335,
+          13.519775339910714
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-risk"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040062805"
+        },
+        "people": [],
+        "haveChronic": "pingpongblack",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "165",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.01383155584335,
+            13.519775339910714
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "207"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae1c",
+        "type": "House",
+        "timestamp": "2017-11-30T15:07:28.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.02843886613846,
+          13.50859769087104
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-risk"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040062911"
+        },
+        "people": [],
+        "haveChronic": "falsh",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "178",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.02843886613846,
+            13.50859769087104
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "208"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae1d",
+        "type": "House",
+        "timestamp": "2015-11-04T13:22:55.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.0253301858902,
+          13.509646106728638
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-0"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040061833"
+        },
+        "people": [],
+        "haveChronic": "true",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "60",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.0253301858902,
+            13.509646106728638
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "209"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae1e",
+        "type": "House",
+        "timestamp": "2015-11-04T11:12:25.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.01402199268341,
+          13.528999243865234
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-1"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040060977"
+        },
+        "people": [],
+        "haveChronic": "true",
+        "villageId": "5e12b237eccd5f0004eea19e",
+        "villageName": "บ้านศาลไต้เซี่ย",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "102",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.01402199268341,
+            13.528999243865234
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041206",
+            "pcucode": "07918",
+            "hcode": "210"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae1f",
+        "type": "House",
+        "timestamp": "2017-11-30T14:43:57.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.01322537660599,
+          13.520406446784882
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-2"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040245233"
+        },
+        "people": [],
+        "haveChronic": "pingpong0",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "161",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.01322537660599,
+            13.520406446784882
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "211"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae20",
+        "type": "House",
+        "timestamp": "2017-11-30T15:08:31.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.02463817596436,
+          13.517558628966862
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-3"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040062783"
+        },
+        "people": [],
+        "haveChronic": "true",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "162",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.02463817596436,
+            13.517558628966862
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "212"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae21",
+        "type": "House",
+        "timestamp": "2015-11-04T13:29:30.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.0207194685936,
+          13.510399815778472
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-0"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040061965"
+        },
+        "people": [],
+        "haveChronic": "true",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "74",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.0207194685936,
+            13.510399815778472
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:25.557+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "213"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b241eccd5f0004eeae22",
+        "type": "House",
+        "timestamp": "2015-11-04T10:47:07.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.01881510019302,
+          13.509951241821271
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-1"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040061701"
+        },
+        "people": [],
+        "haveChronic": "true",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "47",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.01881510019302,
+            13.509951241821271
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:28.221+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "214"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b244eccd5f0004eeb100",
+        "type": "House",
+        "timestamp": "2013-08-31T11:35:39.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.01891702413559,
+          13.524232170442952
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-2"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040229548"
+        },
+        "people": [],
+        "haveChronic": "true",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "16/2",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.01891702413559,
+            13.524232170442952
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:28.221+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "215"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b244eccd5f0004eeb101",
+        "type": "House",
+        "timestamp": "2017-11-30T14:59:19.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.02532750368118,
+          13.507460597815525
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-3"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040199843"
+        },
+        "people": [],
+        "haveChronic": "true",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "187",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.02532750368118,
+            13.507460597815525
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:28.221+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "216"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b244eccd5f0004eeb102",
+        "type": "House",
+        "timestamp": "2015-11-04T13:26:33.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.028717815876,
+          13.51095531607922
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-2"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040198529"
+        },
+        "people": [],
+        "haveChronic": "falsh",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "168",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.028717815876,
+            13.51095531607922
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:28.221+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "217"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b244eccd5f0004eeb103",
+        "type": "House",
+        "timestamp": "2015-11-04T10:10:08.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          99.98722940683365,
+          13.515115007247232
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-0"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040059006"
+        },
+        "people": [],
+        "haveChronic": "falsh",
+        "villageId": "5e12b238eccd5f0004eea280",
+        "villageName": "บ้านดอนฟักทอง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "17",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            99.98722940683365,
+            13.515115007247232
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:28.221+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041209",
+            "pcucode": "07918",
+            "hcode": "218"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b244eccd5f0004eeb104",
+        "type": "House",
+        "timestamp": "2017-11-18T10:37:17.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          99.99143242835999,
+          13.517868969740261
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-2"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040256910"
+        },
+        "people": [],
+        "haveChronic": "falsh",
+        "villageId": "5e12b238eccd5f0004eea280",
+        "villageName": "บ้านดอนฟักทอง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "2",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            99.99143242835999,
+            13.517868969740261
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:28.221+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041209",
+            "pcucode": "07918",
+            "hcode": "221"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b244eccd5f0004eeb105",
+        "type": "House",
+        "timestamp": "2017-11-18T10:50:33.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          99.98261064291,
+          13.51237666072219
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-2"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040177475"
+        },
+        "people": [],
+        "haveChronic": "falsh",
+        "villageId": "5e12b238eccd5f0004eea280",
+        "villageName": "บ้านดอนฟักทอง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "4",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            99.98261064291,
+            13.51237666072219
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:28.221+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041209",
+            "pcucode": "07918",
+            "hcode": "223"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b244eccd5f0004eeb106",
+        "type": "House",
+        "timestamp": "2017-11-18T10:09:36.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.01209616661072,
+          13.521267044374014
+        ]
+      },
+      "properties": {
+         "tag":[
+          "pingpong-black"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040064177"
+        },
+        "people": [],
+        "haveChronic": "falsh",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "26",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.01209616661072,
+            13.521267044374014
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:28.221+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "224"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b244eccd5f0004eeb107",
+        "type": "House",
+        "timestamp": "2017-11-30T15:06:37.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.02375304698944,
+          13.52039340740356
+        ]
+      },
+      "properties": {
+        "tag":[
+          "pingpong-black"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040061329"
+        },
+        "people": [],
+        "haveChronic": "falsh",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "10",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.02375304698944,
+            13.52039340740356
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:28.221+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "227"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b244eccd5f0004eeb109",
+        "type": "House",
+        "timestamp": "2017-11-30T15:30:11.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.02454966306686,
+          13.50892629932232
+        ]
+      },
+      "properties": {
+        "tag":[
+          "pingpong-black"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040062872"
+        },
+        "people": [],
+        "haveChronic": "falsh",
+        "villageId": "5e12b238eccd5f0004eea1ee",
+        "villageName": "บ้านรางห้าตำลึง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "174",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            100.02454966306686,
+            13.50892629932232
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:28.221+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041207",
+            "pcucode": "07918",
+            "hcode": "228"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b244eccd5f0004eeb10a",
+        "type": "House",
+        "timestamp": "2015-11-04T13:24:50.000+07:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          99.9850246310234,
+          13.512718303767816
+        ]
+      },
+      "properties": {
+        "tag":[
+          "pingpong-0"
+          ],
+        "identity": {
+          "type": "thailand-household-id",
+          "id": "70040219941"
+        },
+        "people": [],
+        "haveChronic": "falsh",
+        "villageId": "5e12b238eccd5f0004eea280",
+        "villageName": "บ้านดอนฟักทอง",
+        "orgId": "5e12b230eccd5f0004ee9902",
+        "no": "84",
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            99.9850246310234,
+            13.512718303767816
+          ]
+        },
+        "link": {
+          "isSynced": true,
+          "lastSync": "2020-01-06T11:06:28.221+07:00",
+          "system": "JHICS",
+          "keys": {
+            "villcode": "70041209",
+            "pcucode": "07918",
+            "hcode": "230"
+          }
+        },
+        "imagesUrl": [],
+        "id": "5e12b244eccd5f0004eeb10c",
+        "type": "House",
+        "timestamp": "2017-11-18T10:06:29.000+07:00"
+      }
+    }
+  ]

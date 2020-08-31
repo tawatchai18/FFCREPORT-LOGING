@@ -5,6 +5,7 @@ import _ from 'lodash'
 import classNames from 'classnames'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import style from './style.module.scss'
+import UserMenu from '../TopBar/UserMenu/index'
 
 const mapStateToProps = ({ menu, settings }) => ({
   menuData: menu.menuData,
@@ -144,10 +145,7 @@ class MenuTop extends React.Component {
         >
           {items.map(item => {
             return (
-              <li
-                className={classNames(style.air__menuTop__item)}
-                key={item.key}
-              >
+              <li className={classNames(style.air__menuTop__item)} key={item.key}>
                 <Link to={item.url} className={style.air__menuTop__link}>
                   {item.icon && <i className={`${item.icon} ${style.air__menuTop__icon}`} />}
                   <span>{item.title}</span>
@@ -271,7 +269,8 @@ class MenuTop extends React.Component {
   render() {
     const { settings } = this.props
     const { renderedFlyoutItems } = this.state
-    // const items = this.generateMenuItems()
+    const items = this.generateMenuItems()
+    const sessionValue = sessionStorage.getItem('userData')
     return (
       <div>
         <TransitionGroup>
@@ -296,6 +295,7 @@ class MenuTop extends React.Component {
             [style.air__menuFlyout__gray]: settings.flyoutMenuColor === 'gray',
           })}
         >
+          {/* {(sessionValue) && ( */}
           <div className={style.air__menuTop__outer}>
             <a
               href="javascript: void(0);"
@@ -305,7 +305,11 @@ class MenuTop extends React.Component {
               <span />
             </a>
             <a href="https://www.ffc.in.th">
-              <img src="resources/images/LOGO_Color.png" alt="..." style={{ width: 82, height: 82 }} />
+              <img
+                src="resources/images/LOGO_Color.png"
+                alt="..."
+                style={{ width: 82, height: 82 }}
+              />
             </a>
             <div id="menu-left-container" className={style.air__menuTop__container}>
               <ul className={style.air__menuTop__list}>
@@ -329,6 +333,17 @@ class MenuTop extends React.Component {
                     <span>Dashboard</span>
                   </a>
                 </li>
+                {items}
+                {/* <li className={style.air__menuTop__item}>
+                  <Link
+                    to="/system/login"
+                    className={style.air__menuTop__link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span>Map</span>
+                  </Link>
+                </li> */}
                 <li className={style.air__menuTop__item}>
                   <a
                     href="https://download.ffc.in.th/"
@@ -360,6 +375,7 @@ class MenuTop extends React.Component {
                   </a>
                 </li>
                 {/* {items} */}
+                {sessionValue && <UserMenu />}
               </ul>
             </div>
           </div>

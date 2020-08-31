@@ -7,10 +7,11 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import { Layout } from 'antd'
 import { Scrollbars } from 'react-custom-scrollbars'
 import style from './style.module.scss'
+import UserMenu from '../TopBar/UserMenu/index'
 
 const { Sider } = Layout
-const mapStateToProps = ({ menu, settings }) => ({
-  menuData: menu.menuData,
+const mapStateToProps = ({ menuleft, settings }) => ({
+  menuDataleft: menuleft.menuDataleft,
   settings,
   flyoutActive:
     (settings.menuType === 'flyout' ||
@@ -129,7 +130,7 @@ class MenuLeft extends React.Component {
 
   renderFlyoutMenu = (items, key, itemDimensions) => {
     const { settings } = this.props
-    const { activeItem } = this.state
+    // const { activeItem } = this.state
     const left = `${itemDimensions.left + itemDimensions.width - 10}px`
     const top = `${itemDimensions.top}px`
 
@@ -144,7 +145,7 @@ class MenuLeft extends React.Component {
         })}
         key={key}
       >
-        <ul
+        {/* <ul
           className={style.air__menuLeft__list}
           onMouseEnter={() => this.handleFlyoutContainerOver(key)}
           onMouseLeave={() => this.handleFlyoutOut(key)}
@@ -164,14 +165,14 @@ class MenuLeft extends React.Component {
               </li>
             )
           })}
-        </ul>
+        </ul> */}
       </div>
     )
   }
 
   setActiveItems = props => {
-    const { menuData = [] } = props
-    if (!menuData.length) {
+    const { menuDataleft = [] } = props
+    if (!menuDataleft.length) {
       return
     }
     const flattenItems = (items, key) =>
@@ -182,8 +183,11 @@ class MenuLeft extends React.Component {
         }
         return flattenedItems
       }, [])
-    const activeItem = _.find(flattenItems(menuData, 'children'), ['url', props.location.pathname])
-    const activeSubmenu = menuData.reduce((key, parent) => {
+    const activeItem = _.find(flattenItems(menuDataleft, 'children'), [
+      'url',
+      props.location.pathname,
+    ])
+    const activeSubmenu = menuDataleft.reduce((key, parent) => {
       if (Array.isArray(parent.children)) {
         parent.children.map(child => {
           if (child.key === activeItem.key) {
@@ -201,7 +205,7 @@ class MenuLeft extends React.Component {
   }
 
   generateMenuItems = () => {
-    const { menuData = [] } = this.props
+    const { menuDataleft = [] } = this.props
     const { activeSubmenu, activeItem } = this.state
 
     const menuItem = item => {
@@ -273,7 +277,7 @@ class MenuLeft extends React.Component {
       )
     }
 
-    return menuData.map(item => {
+    return menuDataleft.map(item => {
       if (item.children) {
         return submenuItem(item)
       }
@@ -284,6 +288,11 @@ class MenuLeft extends React.Component {
   render() {
     const { settings } = this.props
     const { renderedFlyoutItems } = this.state
+    const sessionValue = sessionStorage.getItem('userData')
+    // console.log(sessionValue,'How Toooo......');
+    const bon = JSON.parse(sessionValue)
+    // console.log(bon.user.roles[0],'สวัสดีวันจันท');
+
     const items = this.generateMenuItems()
     return (
       <Sider width="auto">
@@ -315,7 +324,7 @@ class MenuLeft extends React.Component {
               settings.flyoutMenuColor === 'gray' && settings.menuType !== 'default',
           })}
         >
-          <div className={style.air__menuLeft__outer}>
+          <div className={style.air__menuLeft__outer} style={{ backgroundColor: '#f2f4f8' }}>
             <a
               href="javascript: void(0);"
               className={style.air__menuLeft__mobileToggleButton}
@@ -331,17 +340,22 @@ class MenuLeft extends React.Component {
               <span />
               <span />
             </a>
+            <br />
             <a href="javascript: void(0);" className={style.air__menuLeft__logo}>
-              <img src="resources/images/air-logo.png" alt="Air UI" />
-              <div className={style.air__menuLeft__logo__name}>AIR UI</div>
-              <div className={style.air__menuLeft__logo__descr}>Admin Template</div>
+              <img
+                src="resources/images/LOGO_Color.png"
+                alt="..."
+                style={{ width: 80, marginTop: -32 }}
+              />
+              {/* <div className={style.air__menuLeft__logo__name}>AIR UI</div>
+              <div className={style.air__menuLeft__logo__descr}>Admin Template</div> */}
             </a>
             <a href="javascript: void(0);" className={style.air__menuLeft__user}>
               <div className={style.air__menuLeft__user__avatar}>
-                <img src="resources/images/avatars/avatar.png" alt="David Beckham" />
+                <UserMenu />
               </div>
-              <div className={style.air__menuLeft__user__name}>David Beckham</div>
-              <div className={style.air__menuLeft__user__role}>Administrator</div>
+              <div className={style.air__menuLeft__user__name}>{bon.user.name}</div>
+              <div className={style.air__menuLeft__user__role}>{bon.user.roles[0]}</div>
             </a>
             <Scrollbars
               autoHide

@@ -17,6 +17,7 @@ const mapStateToProps = ({ settings }) => ({ settings })
 @connect(mapStateToProps)
 class AppLayout extends React.PureComponent {
   render() {
+    const sessionValue = sessionStorage.getItem('userData')
     const {
       children,
       settings: {
@@ -46,7 +47,7 @@ class AppLayout extends React.PureComponent {
         <Sidebar />
         <SupportChat />
         {menuLayoutType === 'left' && <MenuLeft />}
-        {menuLayoutType === 'top' && <MenuTop />}
+        {!sessionValue && (menuLayoutType === 'top' && <MenuTop />)}
         <Layout>
           <Layout.Header
             className={classNames('air__layout__header', {
@@ -54,15 +55,18 @@ class AppLayout extends React.PureComponent {
               air__layout__headerGray: isGrayTopbar,
             })}
           >
+            {sessionValue && <MenuLeft />}
             {/* <TopBar /> */}
             {/* <SubBar /> */}
           </Layout.Header>
           <Layout.Content style={{ height: '100%', position: 'relative' }}>
             <div className="air__utils__content">{children}</div>
           </Layout.Content>
-          <Layout.Footer>
-            <Footer />
-          </Layout.Footer>
+          {!sessionValue && (
+            <Layout.Footer>
+              <Footer />
+            </Layout.Footer>
+          )}
         </Layout>
       </Layout>
     )

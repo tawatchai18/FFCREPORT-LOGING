@@ -5,42 +5,42 @@ export default async function getMenuData() {
     //   title: 'Dashboards',
     // },
     // {
-      // title: 'Dashboards',
-      // key: 'dashboards',
-      // icon: 'fe fe-home',
-      // count: 6,
-      //  [
-        {
-          title: 'Home',
-          key: 'dashboardAnalytics',
-          url: 'https://www.ffc.in.th/',
-        },
-        {
-          title: 'แผนที่สุขภาพชุมชน',
-          key: 'dashboardStatistics',
-          url: '/dashboard/statistics',
-        },
-        {
-          title: 'ข้อมูลบริการ',
-          key: 'dashboardEcommerce',
-          url: '/dashboard/ecommerce',
-        },
-        {
-          title: 'บันทึกผลเยี่บมบ้าน',
-          key: 'dashboardCrypto',
-          url: '/dashboard/crypto',
-        },
-        {
-          title: 'ติดต่อสอบถาม',
-          key: 'dashboardJira',
-          url: '/dashboard/jira',
-        },
-        {
-          title: 'Helpdesk',
-          key: 'dashboardHelpdesk',
-          url: '/dashboard/helpdesk',
-        },
-      // ],
+    // title: 'Dashboards',
+    // key: 'dashboards',
+    // icon: 'fe fe-home',
+    // count: 6,
+    //  [
+    // {
+    //   title: 'Home',
+    //   key: 'dashboardAnalytics',
+    //   url: 'https://www.ffc.in.th/',
+    // },
+    // {
+    //   title: 'แผนที่สุขภาพชุมชน',
+    //   key: 'dashboardStatistics',
+    //   url: '/dashboard/statistics',
+    // },
+    // {
+    //   title: 'ข้อมูลบริการ',
+    //   key: 'dashboardEcommerce',
+    //   url: '/dashboard/ecommerce',
+    // },
+    // {
+    //   title: 'บันทึกผลเยี่บมบ้าน',
+    //   key: 'dashboardCrypto',
+    //   url: '/dashboard/crypto',
+    // },
+    // {
+    //   title: 'ติดต่อสอบถาม',
+    //   key: 'dashboardJira',
+    //   url: '/dashboard/jira',
+    // },
+    // {
+    //   title: 'Helpdesk',
+    //   key: 'dashboardHelpdesk',
+    //   url: '/dashboard/helpdesk',
+    // },
+    // ],
     // },
     // {
     //   category: true,
@@ -51,11 +51,11 @@ export default async function getMenuData() {
     //   key: 'system',
     //   icon: 'fe fe-user',
     //   children: [
-    //     {
-    //       title: 'Login',
-    //       key: 'systemLogin',
-    //       url: '/system/login',
-    //     },
+    {
+      title: 'Map',
+      key: 'systemLogin',
+      url: '/system/login',
+    },
     //     {
     //       title: 'Forgot Password',
     //       key: 'systemForgotPassword',

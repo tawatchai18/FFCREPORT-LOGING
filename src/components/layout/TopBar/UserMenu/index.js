@@ -1,27 +1,22 @@
 import React from 'react'
-// import { connect } from 'react-redux'
-// import { Menu, Dropdown, Avatar, Badge } from 'antd'
-import { Menu } from 'antd';
-// import styles from './style.module.scss'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
+import { Menu, Dropdown, Avatar, Badge } from 'antd'
+import styles from './style.module.scss'
 
-// @connect(({ user }) => ({ user }))
+@connect(({ user }) => ({ user }))
 class ProfileMenu extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      current: 'mail',
+      // eslint-disable-next-line react/no-unused-state
+      redirectToReferrer: false,
     }
+    this.logout = this.logout.bind(this)
   }
-
-  handleClick = e => {
-    console.log('click ', e);
-    this.setState({
-      current: e.key,
-    });
-  };
-  //   state = {
-  //     count: 7,
-  //   }
+  // state = {
+  //   count: 7,
+  // }
 
   // logout = () => {
   //   const { dispatch } = this.props
@@ -29,96 +24,37 @@ class ProfileMenu extends React.Component {
   //     type: 'user/LOGOUT',
   //   })
   // }
-
-  // addCount = () => {
-  //   let { count } = this.state
-  //   count += 1
-  //   this.setState({
-  //     count,
-  //   })
-  // }
+  logout() {
+    sessionStorage.getItem('userData', '')
+    sessionStorage.clear()
+    // eslint-disable-next-line react/no-unused-state
+    this.setState({ redirectToReferrer: true })
+  }
 
   render() {
-    return (
-      // eslint-disable-next-line react/destructuring-assignment
-      <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
-        <Menu.Item key="">
-          <a href="https://www.ffc.in.th/" target="_blank" rel="noopener noreferrer">
-            Home
-          </a>
-        </Menu.Item>
-        <Menu.Item key="">
-          <a href="https://ffc.in.th/dashboard/#/dashboard/analytics" target="_blank" rel="noopener noreferrer">
-            Dashboard
-          </a>
-        </Menu.Item>
-        <Menu.Item key="">
-          <a href="https://download.ffc.in.th/" target="_blank" rel="noopener noreferrer">
-            Download
-          </a>
-        </Menu.Item>
-        <Menu.Item key="">
-          <a href="https://www.ffc.in.th/blog/" target="_blank" rel="noopener noreferrer">
-            blog
-          </a>
-        </Menu.Item>
-        <Menu.Item key="">
-          <a href="https://www.ffc.in.th/contact/" target="_blank" rel="noopener noreferrer">
-            Contact
+    if (this.redirectToReferrer) {
+      return <Redirect to="/" />
+    }
+    const menu = (
+      <Menu selectable={false}>
+        <Menu.Item>
+          <a href="/" onClick={this.logout}>
+            <i className={`${styles.menuIcon} fe fe-log-out`} />
+            Logout
           </a>
         </Menu.Item>
       </Menu>
-    );
-    // const { user } = this.props
-    // const { count } = this.state
-    // const menu = (
-    //   <Menu selectable={false}>
-    //     <Menu.Item>
-    //       <strong>Hello, {user.name || 'Anonymous'}</strong>
-    //       <div>
-    //         <strong className="mr-1">Billing Plan: </strong>
-    //         Professional
-    //       </div>
-    //       <div>
-    //         <strong>Role: </strong>
-    //         {user.role}
-    //       </div>
-    //     </Menu.Item>
-    //     <Menu.Divider />
-    //     <Menu.Item>
-    //       <div>
-    //         <strong>Email: </strong>
-    //         {user.email}
-    //         <br />
-    //         <strong>Phone: </strong>
-    //         {user.phone || '— '}
-    //       </div>
-    //     </Menu.Item>
-    //     <Menu.Divider />
-    //     <Menu.Item>
-    //       <a href="javascript: void(0);">
-    //         <i className={`${styles.menuIcon} fe fe-user`} />
-    //         Edit Profile
-    //       </a>
-    //     </Menu.Item>
-    //     <Menu.Divider />
-    //     <Menu.Item>
-    //       <a href="javascript: void(0);" onClick={this.logout}>
-    //         <i className={`${styles.menuIcon} fe fe-log-out`} />
-    //         Logout
-    //       </a>
-    //     </Menu.Item>
-    //   </Menu>
-    // )
-    // return (
-    //   <Dropdown overlay={menu} trigger={['click']} onVisibleChange={this.addCount}>
-    //     <div className={styles.dropdown}>
-    //       <Badge count={count}>
-    //         <Avatar className={styles.avatar} shape="square" size="large" icon="user" />
-    //       </Badge>
-    //     </div>
-    //   </Dropdown>
-    // )
+    )
+    return (
+      // <a href="/" onClick={this.logout} className="logout">ออกจากระบบ</a>
+      <Dropdown overlay={menu} trigger={['click']} onVisibleChange={this.addCount}>
+        <div className={styles.dropdown}>
+          <Badge>
+            <Avatar className={styles.avatar} shape="square" size="large" icon="user" />
+          </Badge>
+        </div>
+      </Dropdown>
+    )
   }
 }
 

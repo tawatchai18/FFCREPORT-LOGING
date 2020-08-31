@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
-import moment from 'moment'
+// import moment from 'moment'
 import Footer from 'components/layout/Footer'
 import { AutoComplete, Input, Icon, Drawer, Row, Col, Divider, Button, Form } from 'antd'
 import {
@@ -30,6 +30,13 @@ import EditControl from './EditControl'
 const myIcon = L.icon({
   iconUrl: 'https://unpkg.com/leaflet@1.0.1/dist/images/marker-icon-2x.png',
   iconSize: [25, 40],
+  iconAnchor: [12.5, 41],
+  popupAnchor: [0, -41],
+})
+
+const greenIcon = L.icon({
+  iconUrl: 'icongreen.png',
+  iconSize: [35, 40],
   iconAnchor: [12.5, 41],
   popupAnchor: [0, -41],
 })
@@ -261,7 +268,7 @@ class Editmark extends React.Component {
     console.log(haveLocation, 'havavava')
     const aa12 = data1.map(item => item.properties)
     const housenovillage = houseaddress.map(object => object.properties)
-    const monentFun = moment()
+    // const monentFun = moment()
     const position = [lat, lng]
     // const ReactLeafletSearchComponent = withLeaflet(ReactLeafletSearch);
     console.log(geojson, 'mapapapapap')
@@ -360,9 +367,18 @@ class Editmark extends React.Component {
         <center>
           <Map style={{ width: '81vw', height: '70vh' }} center={position} zoom={14}>
             <FullscreenControl position="topleft" />
-            <Openhousenomark position="topleft" />
             {this.renderBaseLayerControl()}
             {data1.map(item => {
+              let markerIcon1 = myIcon
+              if (submit) {
+                if (
+                  item.properties.no + item.properties.villageName ===
+                  submit
+                  // item.properties.tag[0] === 'pingpong-normal'
+                ) {
+                  markerIcon1 = greenIcon
+                }
+              }
               return (
                 // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
                 <Marker
@@ -374,7 +390,7 @@ class Editmark extends React.Component {
                   }}
                   onClick={() => this.showDrawer(item)}
                   position={[item.geometry.coordinates[1], item.geometry.coordinates[0]]}
-                  icon={myIcon}
+                  icon={markerIcon1}
                 >
                   <Popup>
                     <span>
@@ -392,22 +408,24 @@ class Editmark extends React.Component {
                       onClose={this.onClose}
                       visible={visible}
                       getContainer={false}
-                      style={{ position: 'absolute', overflow: 'hidden', width: 240 }}
+                      style={{
+                        position: 'absolute',
+                        overflow: 'hidden',
+                        width: 240,
+                        border: '0px solid ',
+                      }}
                     >
                       <span>
                         {house.map(d => {
                           return (
-                            <div className="site-drawer-render-in-current-wrapper">
-                              <Row>
-                                <Col>
-                                  <Link to="/dashboard/userdetail">
-                                    <Button onClick={() => this.setStore(d)}>
-                                      {d.firstname}&nbsp;{d.lastname}&nbsp;อายุ&nbsp;
-                                      {monentFun.diff(d.birthDate, 'years')}&nbsp;ปี
-                                    </Button>
-                                  </Link>
-                                </Col>
-                              </Row>
+                            <div className="text-left">
+                              <Link to="/dashboard/userdetail">
+                                <Button onClick={() => this.setStore(d)}>
+                                  {d.firstname}&nbsp;{d.lastname}
+                                  {/* &nbsp;อายุ&nbsp;
+                                  {monentFun.diff(d.birthDate, 'years')}&nbsp;ปี */}
+                                </Button>
+                              </Link>
                               <Divider />
                             </div>
                           )
@@ -442,53 +460,3 @@ class Editmark extends React.Component {
   }
 }
 export default Editmark
-
-// import React from 'react';
-// import { Map, Marker, Popup, TileLayer, FeatureGroup} from 'react-leaflet'
-// import 'leaflet-draw/dist/leaflet.draw.css'
-// import EditControl from './EditControl'
-
-// const position = [51.505, -0.09]
-// const position2 = [51.50503625326346, -0.10088324546813966]
-
-// class Editmark extends React.Component {
-
-//   render(){
-//     return(
-//       <Map
-//         style={{ width: '80vw', height: '100vh' }}
-//         center={position}
-//         zoom={13}
-//       >
-//         <TileLayer
-//           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-//           url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
-//         />
-//         <FeatureGroup>
-//           <EditControl
-//             position="topright"
-//             onEdited={e => console.log(e)}
-//             edit={{ remove: true }}
-//             draw={{
-//             marker: true,
-//             circle: true,
-//             rectangle: true,
-//             polygon: true,
-//             polyline: true
-//             }}
-//           />
-//         </FeatureGroup>
-//         <Marker position={position}>
-//           <Popup>how to drawer<br />Drawer is not function</Popup>
-//         </Marker>
-//         <Marker position={position2}>
-//           <Popup>
-//             A pretty CSS3 popup. <br /> Easily customizable.
-//           </Popup>
-//         </Marker>
-//       </Map>
-//     )
-//   }
-
-// }
-// export default Editmark

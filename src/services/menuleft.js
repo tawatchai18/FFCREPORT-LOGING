@@ -54,31 +54,25 @@ export default async function getMenuData() {
     {
       title: 'ปิงปองจราจร 7 สี',
       key: 'dashboardCrypto',
-      icon: 'fe fe-user',
+      icon: 'fa fa-users',
       url: '/dashboard/crypto',
     },
-    // {
-    //   title: 'ปิงปองจราจร 7 สี',
-    //   key: 'systemLockscreen',
-    //   icon: 'fe fe-user',
-    //   url: '/dashboard/pingpong',
-    // },
     {
       title: 'ผู้สูงอายุ',
       key: 'dashboardElderly',
-      icon: 'fe fe-user',
+      icon: 'fa fa-blind',
       url: '/dashboard/elderly',
     },
     {
       title: 'สุขภาวะ / อาการ',
       key: 'dashboardSymptom',
-      icon: 'fe fe-user',
+      icon: 'fa fa-wheelchair',
       url: '/dashboard/symptom',
     },
     {
       title: 'แก้ไข',
       key: 'dashboardEditmark',
-      icon: 'fe fe-user',
+      icon: 'fa fa-cog',
       url: '/dashboard/Editmark',
     },
     {

@@ -51,12 +51,9 @@ class UserDetail extends React.Component {
 
   render() {
     const { items } = this.state
-    console.log(items, 'ข้อมูลการบริการ')
     const sessionValue = localStorage.getItem('userUnit')
     const personid = JSON.parse(sessionValue)
-    console.log(personid.relationships, 'ครอบครัว')
     const realationships = personid.relationships.filter(item => item.id)
-    console.log(realationships, 'มาดิว่ะ')
     const listItems = realationships.map(item => (
       <div className="card">
         <div className="card-body">
@@ -81,10 +78,8 @@ class UserDetail extends React.Component {
     const monentFun = moment()
     // eslint-disable-next-line no-new-object
     const myCar = new Object(user.chronics)
-    console.log(myCar, 'โรครุมเร้าหรือหรอและ')
     const Car = myCar.map(ite => ite.disease)
     const compost = _.uniqBy(Car.map(obj => obj.translation), 'th')
-    console.log(compost, 'กระทำที')
     const chronic = compost.map(d => {
       return (
         <div>
@@ -151,37 +146,7 @@ class UserDetail extends React.Component {
               </button>
             </Col>
           </Row>
-          <br />
-          <Row gutter={24}>
-            <Col span={4}>
-              <p>อาการ :</p>
-            </Col>
-            <Col span={16}>
-              <button
-                style={{ width: 400 }}
-                type="button"
-                className="btn btn-primary btn-with-addon"
-              >
-                {syntom1}
-              </button>
-            </Col>
-          </Row>
-          <br />
-          <Row gutter={24}>
-            <Col span={5}>
-              <p>ข้อเสนอแนะ :</p>
-            </Col>
-            <Col span={16}>
-              <button
-                style={{ width: 400 }}
-                type="button"
-                className="btn btn-primary btn-with-addon"
-              >
-                {suggestion1}
-              </button>
-            </Col>
-          </Row> */}
-          <br />
+          <br /> */}
           <div className="row">
             <div className="col-lg-6">
               <div className="card text-white bg-primary">
@@ -224,9 +189,8 @@ class UserDetail extends React.Component {
                     <p className="text-uppercase text-dark font-weight-bold font-size-18 mb-1">
                       โรค :
                     </p>
-                    {/* <p className="text-gray-5 mb-0">คุณมีโรคประจำตัวหรือไม่</p> */}
                   </div>
-                  <p className="text-primary font-weight-bold font-size-18 mb-0">{userMessage}</p>
+                  <p className="text-primary font-weight-bold font-size-16 mb-0">{userMessage}</p>
                 </div>
               </div>
             </div>
@@ -239,7 +203,7 @@ class UserDetail extends React.Component {
                     </p>
                     {/* <p className="text-gray-5 mb-0">มีอาการอะไรบ้าง</p> */}
                   </div>
-                  <p className="text-primary font-weight-bold font-size-18 mb-0">{syntom1}</p>
+                  <p className="text-primary font-weight-bold font-size-16 mb-0">{syntom1}</p>
                 </div>
               </div>
             </div>
@@ -252,7 +216,7 @@ class UserDetail extends React.Component {
                     </p>
                     {/* <p className="text-gray-5 mb-0"></p> */}
                   </div>
-                  <p className="text-primary font-weight-bold font-size-18 mb-0">{suggestion1}</p>
+                  <p className="text-primary font-weight-bold font-size-16 mb-0">{suggestion1}</p>
                 </div>
               </div>
             </div>
@@ -261,9 +225,7 @@ class UserDetail extends React.Component {
             <div className="card">
               <div className="card-header card-header-flex flex-column">
                 <div className="d-flex flex-wrap pt-3 pb-4 mb-3">
-                  {/* <div className="mr-5"> */}
                   <div className="text-dark font-size-18 font-weight-bold">ความสัมพันธ์</div>
-                  {/* </div> */}
                 </div>
               </div>
               <div className="card-body">

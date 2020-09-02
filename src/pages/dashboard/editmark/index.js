@@ -2,9 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
+// import { Scrollbars } from 'react-custom-scrollbars'
 // import moment from 'moment'
 import Footer from 'components/layout/Footer'
-import { AutoComplete, Input, Icon, Drawer, Row, Col, Divider, Button, Form } from 'antd'
+import { AutoComplete, Input, Icon, Drawer, Row, Col, Divider, Button, Form, Popover } from 'antd'
+import L from 'leaflet'
+import 'react-leaflet-fullscreen/dist/styles.css'
+import FullscreenControl from 'react-leaflet-fullscreen'
 import {
   Map,
   TileLayer,
@@ -12,11 +16,8 @@ import {
   WMSTileLayer,
   LayersControl,
   Popup,
-  FeatureGroup,
+  // FeatureGroup,
 } from 'react-leaflet'
-import L from 'leaflet'
-import 'react-leaflet-fullscreen/dist/styles.css'
-import FullscreenControl from 'react-leaflet-fullscreen'
 import {
   MapData,
   UserDatamap,
@@ -25,7 +26,7 @@ import {
 } from '../../../components/system/Auth/Login/PostData'
 import data1 from './data1'
 import 'leaflet-draw/dist/leaflet.draw.css'
-import EditControl from './EditControl'
+// import EditControl from './EditControl'
 
 const myIcon = L.icon({
   iconUrl: 'https://unpkg.com/leaflet@1.0.1/dist/images/marker-icon-2x.png',
@@ -55,11 +56,13 @@ class Editmark extends React.Component {
       lat: 13.520531624809204,
       lng: 100.00699460506439,
       submit: '',
-      open: false,
+      // open: false,
       visible: false,
+      visible1: false,
       selectedVillage: null,
       isLoaded: false,
       error: null,
+      showDraggableMarker: false,
     }
     this.baseMaps = [
       {
@@ -181,17 +184,17 @@ class Editmark extends React.Component {
     )
   }
 
-  showopen = () => {
-    this.setState({
-      open: true,
-    })
-  }
+  // showopen = () => {
+  //   this.setState({
+  //     open: true,
+  //   })
+  // }
 
-  Close = () => {
-    this.setState({
-      open: false,
-    })
-  }
+  // Close = () => {
+  //   this.setState({
+  //     open: false,
+  //   })
+  // }
 
   onClose = () => {
     this.setState({
@@ -223,6 +226,29 @@ class Editmark extends React.Component {
       // eslint-disable-next-line react/no-unused-state
       this.setState({ clickTag: 'pingpong-black' })
     }
+  }
+
+  handleVisibleChange = visible1 => {
+    this.setState({ visible1 })
+  }
+
+  sayHello = () => {
+    this.setState({ showDraggableMarker: true })
+
+    //   alert('ลากไปยังไงเนี่ย');
+    //   const marker = new L.marker([lat,lon],{
+    //     draggable: true
+    // }).addTo(map);
+
+    // marker.on("drag", function(e) {
+    //     const marker = e.target;
+    //     const position = marker.getLatLng();
+    //     map.panTo(new L.LatLng(position.lat, position.lng));
+    // });
+  }
+
+  onDragMarker = e => {
+    console.log(e)
   }
 
   renderBaseLayerControl() {
@@ -257,14 +283,17 @@ class Editmark extends React.Component {
       submit,
       isLoaded,
       error,
-      open,
+      // open,
       selectedVillage,
       person,
       house,
       visible,
+      visible1,
       houseaddress,
       haveLocation,
+      showDraggableMarker,
     } = this.state
+    console.log(showDraggableMarker, '1234567677')
     console.log(haveLocation, 'havavava')
     const aa12 = data1.map(item => item.properties)
     const housenovillage = houseaddress.map(object => object.properties)
@@ -280,51 +309,53 @@ class Editmark extends React.Component {
       window.location.reload(false)
     }
 
-    const Openhousenomark = () => {
+    // const Openhousenomark = () => {
+    //   return (
+    //     <>
+    //       <Button type="primary" onClick={this.showopen}>
+    //         เพิ่มพิกัด
+    //       </Button>
+    //       <Drawer
+    //         title="บ้านที่ไม่ระบุพิกัด"
+    //         width={320}
+    //         placement="left"
+    //         onClose={this.Close}
+    //         visible={open}
+    //         bodyStyle={{ paddingBottom: 80 }}
+    //       >
+    //         {haveLocation.map(d => {
+    //           return (
+    //             <Form layout="vertical" hideRequiredMark>
+    //               <Row gutter={16}>
+    //                 <Col span={12}>
+    //                   <Button style={{ width: 260 }}>
+    //                     {d.no}&nbsp;{d.villageName}
+    //                   </Button>
+    //                 </Col>
+    //               </Row>
+    //               <Divider />
+    //             </Form>
+    //           )
+    //         })}
+    //       </Drawer>
+    //     </>
+    //   )
+    // }
+
+    const content = haveLocation.map(d => {
       return (
-        <>
-          <Button type="primary" onClick={this.showopen}>
-            เพิ่มพิกัด
-          </Button>
-          <Drawer
-            title="บ้านที่ไม่ระบุพิกัด"
-            width={320}
-            onClose={this.Close}
-            visible={open}
-            bodyStyle={{ paddingBottom: 80 }}
-            footer={
-              <div
-                style={{
-                  textAlign: 'right',
-                }}
-              >
-                <Button onClick={this.onClose} style={{ marginRight: 8 }}>
-                  Cancel
-                </Button>
-                <Button onClick={this.onClose} type="primary">
-                  Submit
-                </Button>
-              </div>
-            }
-          >
-            {haveLocation.map(d => {
-              return (
-                <Form layout="vertical" hideRequiredMark>
-                  <Row gutter={16}>
-                    <Col span={12}>
-                      <Button style={{ width: 260 }}>
-                        {d.no}&nbsp;{d.villageName}
-                      </Button>
-                    </Col>
-                  </Row>
-                  <Divider />
-                </Form>
-              )
-            })}
-          </Drawer>
-        </>
+        <Form layout="vertical">
+          <Row gutter={16}>
+            <Col span={12}>
+              <Button style={{ width: 260 }} onClick={this.sayHello}>
+                {d.no}&nbsp;{d.villageName}
+              </Button>
+            </Col>
+          </Row>
+          <Divider />
+        </Form>
       )
-    }
+    })
 
     const Complete = () => {
       return (
@@ -361,7 +392,7 @@ class Editmark extends React.Component {
         </div>
         <Complete />
         &nbsp;&nbsp;
-        <Openhousenomark />
+        {/* <Openhousenomark /> */}
         <br />
         <br />
         <center>
@@ -436,7 +467,17 @@ class Editmark extends React.Component {
                 </Marker>
               )
             })}
-            <FeatureGroup>
+            {showDraggableMarker && (
+              <Marker
+                style={{ position: 'absolute', zIndex: 400 }}
+                // onClick={() => this.showDrawer()}
+                position={[13.52, 100]}
+                draggable
+                onDrag={e => console.log(e.latlng)}
+                icon={greenIcon}
+              />
+            )}
+            {/* <FeatureGroup>
               <EditControl
                 position="topleft"
                 onEdited={e => console.log(e)}
@@ -450,7 +491,31 @@ class Editmark extends React.Component {
                   circlemarker: false,
                 }}
               />
-            </FeatureGroup>
+            </FeatureGroup> */}
+            <Popover
+              title="บ้านไม่ระบุพิกัด"
+              trigger="click"
+              visible={visible1}
+              onVisibleChange={this.handleVisibleChange}
+              overlayStyle={{
+                height: '50vh',
+                overflowY: 'auto',
+              }}
+              content={content}
+            >
+              <Button
+                style={{
+                  position: 'absolute',
+                  marginTop: 480,
+                  left: 10,
+                  padding: 10,
+                  width: 35,
+                  zIndex: 400,
+                }}
+              >
+                <i className="icmn-plus" />
+              </Button>
+            </Popover>
           </Map>
         </center>
         <br />

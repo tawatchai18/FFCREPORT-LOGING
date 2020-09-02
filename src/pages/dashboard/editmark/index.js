@@ -63,6 +63,8 @@ class Editmark extends React.Component {
       isLoaded: false,
       error: null,
       showDraggableMarker: false,
+      villageDrag: null,
+      noDrag: null,
     }
     this.baseMaps = [
       {
@@ -184,18 +186,6 @@ class Editmark extends React.Component {
     )
   }
 
-  // showopen = () => {
-  //   this.setState({
-  //     open: true,
-  //   })
-  // }
-
-  // Close = () => {
-  //   this.setState({
-  //     open: false,
-  //   })
-  // }
-
   onClose = () => {
     this.setState({
       visible: false,
@@ -232,23 +222,14 @@ class Editmark extends React.Component {
     this.setState({ visible1 })
   }
 
-  sayHello = () => {
-    this.setState({ showDraggableMarker: true })
-
-    //   alert('ลากไปยังไงเนี่ย');
-    //   const marker = new L.marker([lat,lon],{
-    //     draggable: true
-    // }).addTo(map);
-
-    // marker.on("drag", function(e) {
-    //     const marker = e.target;
-    //     const position = marker.getLatLng();
-    //     map.panTo(new L.LatLng(position.lat, position.lng));
-    // });
-  }
-
-  onDragMarker = e => {
-    console.log(e)
+  showDraggable = d => {
+    console.log('asdfghjk')
+    console.log(d)
+    this.setState({
+      showDraggableMarker: true,
+      villageDrag: d.villageName,
+      noDrag: d.no,
+    })
   }
 
   renderBaseLayerControl() {
@@ -283,7 +264,6 @@ class Editmark extends React.Component {
       submit,
       isLoaded,
       error,
-      // open,
       selectedVillage,
       person,
       house,
@@ -292,6 +272,8 @@ class Editmark extends React.Component {
       houseaddress,
       haveLocation,
       showDraggableMarker,
+      villageDrag,
+      noDrag,
     } = this.state
     console.log(showDraggableMarker, '1234567677')
     console.log(haveLocation, 'havavava')
@@ -299,7 +281,6 @@ class Editmark extends React.Component {
     const housenovillage = houseaddress.map(object => object.properties)
     // const monentFun = moment()
     const position = [lat, lng]
-    // const ReactLeafletSearchComponent = withLeaflet(ReactLeafletSearch);
     console.log(geojson, 'mapapapapap')
     console.log(selectedVillage, person)
     console.log(data1, houseaddress, housenovillage, 'ข้อมูลdata1')
@@ -309,45 +290,12 @@ class Editmark extends React.Component {
       window.location.reload(false)
     }
 
-    // const Openhousenomark = () => {
-    //   return (
-    //     <>
-    //       <Button type="primary" onClick={this.showopen}>
-    //         เพิ่มพิกัด
-    //       </Button>
-    //       <Drawer
-    //         title="บ้านที่ไม่ระบุพิกัด"
-    //         width={320}
-    //         placement="left"
-    //         onClose={this.Close}
-    //         visible={open}
-    //         bodyStyle={{ paddingBottom: 80 }}
-    //       >
-    //         {haveLocation.map(d => {
-    //           return (
-    //             <Form layout="vertical" hideRequiredMark>
-    //               <Row gutter={16}>
-    //                 <Col span={12}>
-    //                   <Button style={{ width: 260 }}>
-    //                     {d.no}&nbsp;{d.villageName}
-    //                   </Button>
-    //                 </Col>
-    //               </Row>
-    //               <Divider />
-    //             </Form>
-    //           )
-    //         })}
-    //       </Drawer>
-    //     </>
-    //   )
-    // }
-
     const content = haveLocation.map(d => {
       return (
         <Form layout="vertical">
           <Row gutter={16}>
             <Col span={12}>
-              <Button style={{ width: 260 }} onClick={this.sayHello}>
+              <Button style={{ width: 260 }} onClick={() => this.showDraggable(d)}>
                 {d.no}&nbsp;{d.villageName}
               </Button>
             </Col>
@@ -391,8 +339,6 @@ class Editmark extends React.Component {
           <h5>แก้ไข</h5>
         </div>
         <Complete />
-        &nbsp;&nbsp;
-        {/* <Openhousenomark /> */}
         <br />
         <br />
         <center>
@@ -402,11 +348,7 @@ class Editmark extends React.Component {
             {data1.map(item => {
               let markerIcon1 = myIcon
               if (submit) {
-                if (
-                  item.properties.no + item.properties.villageName ===
-                  submit
-                  // item.properties.tag[0] === 'pingpong-normal'
-                ) {
+                if (item.properties.no + item.properties.villageName === submit) {
                   markerIcon1 = greenIcon
                 }
               }
@@ -475,23 +417,16 @@ class Editmark extends React.Component {
                 draggable
                 onDrag={e => console.log(e.latlng)}
                 icon={greenIcon}
-              />
+              >
+                <Popup>
+                  <span>
+                    <p>หมู่บ้าน:{villageDrag}</p>
+                    <p>บ้านเลขที่:{noDrag}</p>
+                    <p>tag:</p>
+                  </span>
+                </Popup>
+              </Marker>
             )}
-            {/* <FeatureGroup>
-              <EditControl
-                position="topleft"
-                onEdited={e => console.log(e)}
-                edit={{ remove: true }}
-                draw={{
-                  marker: true,
-                  circle: false,
-                  rectangle: false,
-                  polygon: false,
-                  polyline: false,
-                  circlemarker: false,
-                }}
-              />
-            </FeatureGroup> */}
             <Popover
               title="บ้านไม่ระบุพิกัด"
               trigger="click"
@@ -506,7 +441,7 @@ class Editmark extends React.Component {
               <Button
                 style={{
                   position: 'absolute',
-                  marginTop: 480,
+                  marginTop: 200,
                   left: 10,
                   padding: 10,
                   width: 35,

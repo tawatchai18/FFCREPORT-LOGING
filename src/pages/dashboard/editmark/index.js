@@ -23,6 +23,7 @@ import {
   UserDatamap,
   houseMap,
   haveLocat,
+  editemarker,
 } from '../../../components/system/Auth/Login/PostData'
 import data1 from './data1'
 import 'leaflet-draw/dist/leaflet.draw.css'
@@ -56,7 +57,6 @@ class Editmark extends React.Component {
       lat: 13.520531624809204,
       lng: 100.00699460506439,
       submit: '',
-      // open: false,
       visible: false,
       visible1: false,
       selectedVillage: null,
@@ -65,6 +65,8 @@ class Editmark extends React.Component {
       showDraggableMarker: false,
       villageDrag: null,
       noDrag: null,
+      idhouse: [],
+      updatehouse: [],
     }
     this.baseMaps = [
       {
@@ -89,6 +91,7 @@ class Editmark extends React.Component {
       zoom: 10,
       layers: [this.basemaps],
     }
+    this.handleValidSubmit = this.handleValidSubmit.bind(this)
   }
 
   componentDidMount() {
@@ -99,7 +102,7 @@ class Editmark extends React.Component {
     MapData(id, dataJson.token).then(
       result => {
         this.setState({
-          geojson: result,
+          geojson: result.features,
           isLoaded: true,
         })
       },
@@ -173,7 +176,8 @@ class Editmark extends React.Component {
     houseMap(id, dataJson.token, houseid).then(
       result => {
         this.setState({
-          houseaddress: result.features,
+          // houseaddress: result.features,
+          houseaddress: result,
           isLoaded: true,
         })
       },
@@ -193,31 +197,6 @@ class Editmark extends React.Component {
     })
   }
 
-  checkIdItems = e => {
-    if (e.target.value === 1) {
-      // eslint-disable-next-line react/no-unused-state
-      this.setState({ clickTag: 'pingpong-normal' })
-    } else if (e.target.value === 2) {
-      // eslint-disable-next-line react/no-unused-state
-      this.setState({ clickTag: 'pingpong-risk' })
-    } else if (e.target.value === 3) {
-      // eslint-disable-next-line react/no-unused-state
-      this.setState({ clickTag: 'pingpong-0' })
-    } else if (e.target.value === 4) {
-      // eslint-disable-next-line react/no-unused-state
-      this.setState({ clickTag: 'pingpong-1' })
-    } else if (e.target.value === 5) {
-      // eslint-disable-next-line react/no-unused-state
-      this.setState({ clickTag: 'pingpong-2' })
-    } else if (e.target.value === 6) {
-      // eslint-disable-next-line react/no-unused-state
-      this.setState({ clickTag: 'pingpong-3' })
-    } else if (e.target.value === 7) {
-      // eslint-disable-next-line react/no-unused-state
-      this.setState({ clickTag: 'pingpong-black' })
-    }
-  }
-
   handleVisibleChange = visible1 => {
     this.setState({ visible1 })
   }
@@ -229,6 +208,45 @@ class Editmark extends React.Component {
       showDraggableMarker: true,
       villageDrag: d.villageName,
       noDrag: d.no,
+      idhouse: d,
+    })
+  }
+
+  submitok = (idhouse, e) => {
+    console.log(idhouse, e, 'มีไอดีไหม')
+    const data = sessionStorage.getItem('userData')
+    const dataJson = JSON.parse(data)
+    const id = dataJson.user.orgId
+    const houseid = idhouse.id
+    editemarker(id, dataJson.token, houseid, idhouse, e).then(
+      result => {
+        this.setState({
+          updatehouse: result,
+          isLoaded: true,
+        })
+      },
+      error => {
+        this.setState({
+          isLoaded: true,
+          error,
+        })
+      },
+    )
+  }
+
+  handleRemove = () => {
+    console.log('ลบ remove')
+    this.setState({
+      showDraggableMarker: null,
+    })
+  }
+
+  handleValidSubmit(value) {
+    console.log(value, 'แวรู่')
+    const { haveLocation } = this.state
+    console.log(haveLocation, 'lololocation')
+    haveLocation.find(item => {
+      return item.no + item.villageName === value
     })
   }
 
@@ -274,36 +292,25 @@ class Editmark extends React.Component {
       showDraggableMarker,
       villageDrag,
       noDrag,
+      idhouse,
+      updatehouse,
     } = this.state
+    const onsubmit = this.handleValidSubmit
     console.log(showDraggableMarker, '1234567677')
-    console.log(haveLocation, 'havavava')
+    console.log(haveLocation, idhouse, updatehouse, 'havavava')
     const aa12 = data1.map(item => item.properties)
     const housenovillage = houseaddress.map(object => object.properties)
     // const monentFun = moment()
     const position = [lat, lng]
     console.log(geojson, 'mapapapapap')
     console.log(selectedVillage, person)
-    console.log(data1, houseaddress, housenovillage, 'ข้อมูลdata1')
+    console.log(houseaddress, 'themask')
+    console.log(data1, houseaddress, 'ข้อมูลdata1')
     console.log(house, 'lllll')
 
     function refreshPage() {
       window.location.reload(false)
     }
-
-    const content = haveLocation.map(d => {
-      return (
-        <Form layout="vertical">
-          <Row gutter={16}>
-            <Col span={12}>
-              <Button style={{ width: 260 }} onClick={() => this.showDraggable(d)}>
-                {d.no}&nbsp;{d.villageName}
-              </Button>
-            </Col>
-          </Row>
-          <Divider />
-        </Form>
-      )
-    })
 
     const Complete = () => {
       return (
@@ -326,6 +333,48 @@ class Editmark extends React.Component {
         </AutoComplete>
       )
     }
+
+    const Search = () => {
+      return (
+        <AutoComplete
+          style={{ width: 250, Color: '#000' }}
+          // onSelect={val => {
+          //   this.setState({ submit: val })
+          // }}
+          onChange={onsubmit}
+          dataSource={haveLocation.map(d => d.no + d.villageName)}
+          defaultValue={submit}
+          placeholder="บ้านเลขที่ / หมู่บ้าน"
+          filterOption={(inputValue, option) =>
+            option.props.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+          }
+        >
+          <Input
+            suffix={<Icon type="search" onClick={refreshPage} className="certain-category-icon" />}
+            allowClear
+          />
+        </AutoComplete>
+      )
+    }
+
+    const content = haveLocation.map(d => {
+      return (
+        <Form layout="vertical">
+          <Row gutter={16}>
+            <Col span={12}>
+              <Button
+                style={{ width: 260 }}
+                onClick={() => this.showDraggable(d)}
+                onChange={onsubmit}
+              >
+                {d.no}&nbsp;{d.villageName}
+              </Button>
+            </Col>
+          </Row>
+          <Divider />
+        </Form>
+      )
+    })
     if (error) {
       return <div>Error: {error.message}</div>
     }
@@ -345,6 +394,7 @@ class Editmark extends React.Component {
           <Map style={{ width: '81vw', height: '70vh' }} center={position} zoom={14}>
             <FullscreenControl position="topleft" />
             {this.renderBaseLayerControl()}
+            {/* {geojson.map(item => { */}
             {data1.map(item => {
               let markerIcon1 = myIcon
               if (submit) {
@@ -377,6 +427,7 @@ class Editmark extends React.Component {
                       title={`${housenovillage.map(obj => obj.no)} ${housenovillage.map(
                         obj => obj.villageName,
                       )}`}
+                      // title={`${houseaddress.no} ${houseaddress.villageName}`}
                       placement="right"
                       onClose={this.onClose}
                       visible={visible}
@@ -395,8 +446,6 @@ class Editmark extends React.Component {
                               <Link to="/dashboard/userdetail">
                                 <Button onClick={() => this.setStore(d)}>
                                   {d.firstname}&nbsp;{d.lastname}
-                                  {/* &nbsp;อายุ&nbsp;
-                                  {monentFun.diff(d.birthDate, 'years')}&nbsp;ปี */}
                                 </Button>
                               </Link>
                               <Divider />
@@ -412,10 +461,10 @@ class Editmark extends React.Component {
             {showDraggableMarker && (
               <Marker
                 style={{ position: 'absolute', zIndex: 400 }}
-                // onClick={() => this.showDrawer()}
                 position={[13.52, 100]}
                 draggable
-                onDrag={e => console.log(e.latlng)}
+                // onDrag={e => console.log(e.latlng,e.latlng.lat,'latlongggggggg122345678')}
+                ondrag={e => this.submitok(idhouse, e)}
                 icon={greenIcon}
               >
                 <Popup>
@@ -424,11 +473,15 @@ class Editmark extends React.Component {
                     <p>บ้านเลขที่:{noDrag}</p>
                     <p>tag:</p>
                   </span>
+                  <Row>
+                    {/* <Button onClick={this.submitok(idhouse)}>บันทึก</Button>&nbsp; */}
+                    <Button onClick={this.handleRemove}>ยกเลิก</Button>
+                  </Row>
                 </Popup>
               </Marker>
             )}
             <Popover
-              title="บ้านไม่ระบุพิกัด"
+              title={<Search />}
               trigger="click"
               visible={visible1}
               onVisibleChange={this.handleVisibleChange}
@@ -441,7 +494,7 @@ class Editmark extends React.Component {
               <Button
                 style={{
                   position: 'absolute',
-                  marginTop: 200,
+                  marginTop: 280,
                   left: 10,
                   padding: 10,
                   width: 35,

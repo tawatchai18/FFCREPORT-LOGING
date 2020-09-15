@@ -89,7 +89,6 @@ class EditControl extends MapControl {
     }
 
     map.on(leaflet.Draw.Event.CREATED, this.onDrawCreate)
-
     // eslint-disable-next-line no-unused-expressions
     onMounted && onMounted(this.leafletElement)
   }

@@ -70,17 +70,17 @@ export default async function getMenuData() {
       url: '/dashboard/symptom',
     },
     {
-      title: 'แก้ไข',
+      title: 'เพิ่ม / แก้ไข',
       key: 'dashboardEditmark',
       icon: 'fa fa-cog',
       url: '/dashboard/Editmark',
     },
-    {
-      // title: 'UserDetail',
-      key: 'dashboarduserdetail',
-      // icon: 'fe fe-user',
-      url: '/dashboard/userdetail',
-    },
+    // {
+    //   // title: 'UserDetail',
+    //   key: 'dashboarduserdetail',
+    //   // icon: 'fe fe-user',
+    //   url: '/dashboard/userdetail',
+    // },
     // {
     //   title: 'Page 404',
     //   key: 'system404',

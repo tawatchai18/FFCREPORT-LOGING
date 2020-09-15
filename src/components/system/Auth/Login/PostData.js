@@ -109,8 +109,56 @@ export function houseMap(id, token, houseid) {
     })
       .then(response => response.json())
       .then(res => {
-        console.log(res, ';;;;;;;')
+        console.log(res, 'housemap')
         resolve(res)
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+export function editemarker(id, token, houseid, idhouse, e) {
+  console.log(e, houseid, 'houseMap')
+  return new Promise((resolve, reject) => {
+    fetch(`${API}/org/${id}/house/${houseid}`, {
+      method: 'PUT',
+      body: JSON.stringify({
+        identity: idhouse.identity,
+        people: idhouse.people,
+        haveChronic: idhouse.haveChronic,
+        no: idhouse.no,
+        villageName: idhouse.villageName,
+        villageId: idhouse.villageId,
+        location: {
+          type: 'Point',
+          coordinates: [e.latlng.lng, e.latlng.lat],
+        },
+        link: idhouse.link,
+        imagesUrl: idhouse.imagesUrl,
+        id: idhouse.id,
+        type: idhouse.type,
+        timestamp: idhouse.timestamp,
+      }),
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      }),
+    })
+      // .then(response => {
+      //   return response.json()
+      // }).then(json => {
+      // console.log(json)
+      // this.setState({
+      //   user:json
+      // })
+      .then(response => response.json())
+      .then(res => {
+        console.log(res, 'editemarker')
+        resolve(res)
+        // this.setState({
+        //   user:res
+        // })
       })
       .catch(error => {
         reject(error)

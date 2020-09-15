@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import Layout from 'layouts'
 import NotFoundPage from 'pages/system/404'
 import Loader from 'components/layout/Loader'
+import UserDetail from 'pages/dashboard/userdetail'
 
 const loadable = loader =>
   Loadable({
@@ -91,6 +92,7 @@ class Router extends React.Component {
               )
             }}
           >
+            <Route path="/dashboard/userdetail" key="dashboarduserdetail" component={UserDetail} />
             <Route exact path="/" render={() => <Redirect to="/dashboard/analytics" />} />
             {routes.map(({ path, Component, exact }) => (
               <Route path={path} key={path} exact={exact}>

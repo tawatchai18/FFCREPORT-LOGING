@@ -1,9 +1,5 @@
 import React from 'react'
-// import { Redirect } from 'react-router-dom';
-// import { Helmet } from 'react-helmet'
-// import ChartistTooltip from 'chartist-plugin-tooltips-updated'
 import { Radio, AutoComplete, Input, Icon } from 'antd'
-// import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import { Map, TileLayer, Marker, Popup, WMSTileLayer, LayersControl } from 'react-leaflet'
 import L from 'leaflet'
 import { MapData, CreatData } from '../../../components/system/Auth/Login/PostData'
@@ -12,7 +8,7 @@ import data1 from './data1'
 
 const myIcon = L.icon({
   iconUrl: 'blue.png',
-  iconSize: [25, 30],
+  iconSize: [0, 0],
   iconAnchor: [12.5, 41],
   popupAnchor: [0, -41],
 })

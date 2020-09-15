@@ -18,28 +18,31 @@ import data1 from './data1'
 
 const myIcon = L.icon({
   iconUrl: 'blue.png',
-  iconSize: [25, 30],
+  iconSize: [0, 0],
   iconAnchor: [12.5, 41],
   popupAnchor: [0, -41],
 })
 
 const greenIcon = L.icon({
   iconUrl: 'icongreen.png',
-  iconSize: [25, 30],
+  iconSize: [35, 40],
   iconAnchor: [12.5, 41],
   popupAnchor: [0, -41],
+  // iconSize: [25, 30],
+  // iconAnchor: [12.5, 41],
+  // popupAnchor: [0, -41],
 })
 
 const yelloIcon = L.icon({
   iconUrl: 'yello.png',
-  iconSize: [25, 30],
+  iconSize: [35, 40],
   iconAnchor: [12.5, 41],
   popupAnchor: [0, -41],
 })
 
 const redIcon = L.icon({
   iconUrl: 'iconred.png',
-  iconSize: [25, 30],
+  iconSize: [35, 40],
   iconAnchor: [12.5, 41],
   popupAnchor: [0, -41],
 })

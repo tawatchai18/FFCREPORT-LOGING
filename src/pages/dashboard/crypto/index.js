@@ -357,12 +357,20 @@ import {
   Col,
   Select,
   Form,
-  InputNumber,
+  // InputNumber,
   Divider,
   Drawer,
   Button,
 } from 'antd'
-import { Map, TileLayer, Marker, Popup, WMSTileLayer, LayersControl } from 'react-leaflet'
+import {
+  Map,
+  TileLayer,
+  Marker,
+  Popup,
+  WMSTileLayer,
+  LayersControl,
+  ZoomControl,
+} from 'react-leaflet'
 import L from 'leaflet'
 import 'react-leaflet-fullscreen/dist/styles.css'
 import FullscreenControl from 'react-leaflet-fullscreen'
@@ -379,57 +387,54 @@ const { Option } = Select
 
 const myIcon = L.icon({
   iconUrl: 'blue.png',
-  // iconSize: [0,0],
-  // iconAnchor: [12.5, 41],
-  // popupAnchor: [0, 0]
   iconSize: [25, 30],
   iconAnchor: [12.5, 41],
   popupAnchor: [0, -41],
 })
 const writhIcon = L.icon({
   iconUrl: 'writh.png',
-  iconSize: [25, 30],
+  iconSize: [35, 40],
   iconAnchor: [12.5, 41],
   popupAnchor: [0, -41],
 })
 const greenIcon = L.icon({
   iconUrl: 'icongreen.png',
-  iconSize: [25, 30],
+  iconSize: [35, 40],
   iconAnchor: [12.5, 41],
   popupAnchor: [0, -41],
 })
 
 const yelloIcon = L.icon({
   iconUrl: 'yello.png',
-  iconSize: [25, 30],
+  iconSize: [35, 40],
   iconAnchor: [12.5, 41],
   popupAnchor: [0, -41],
 })
 
 const orangeIcon = L.icon({
   iconUrl: 'orange.png',
-  iconSize: [25, 30],
+  iconSize: [35, 40],
   iconAnchor: [12.5, 41],
   popupAnchor: [0, -41],
 })
 
 const redIcon = L.icon({
   iconUrl: 'iconred.png',
-  iconSize: [25, 30],
+  iconSize: [35, 40],
   iconAnchor: [12.5, 41],
   popupAnchor: [0, -41],
 })
 
 const blackIcon = L.icon({
   iconUrl: 'back.png',
-  iconSize: [25, 30],
+  iconSize: [35, 40],
   iconAnchor: [12.5, 41],
   popupAnchor: [0, -41],
 })
 
 const greenplushIcon = L.icon({
   iconUrl: 'greenplus.png',
-  iconSize: [25, 30],
+  iconSize: [35, 40],
   iconAnchor: [12.5, 41],
   popupAnchor: [0, -41],
 })
@@ -445,7 +450,7 @@ class DashboardCrypto extends React.Component {
       clickTag: '',
       click: '',
       checkVillage: '',
-      clicknum: '',
+      // clicknum: '',
       villageName: [],
       coordinates: [],
       house: [],
@@ -477,7 +482,7 @@ class DashboardCrypto extends React.Component {
   componentDidMount() {
     const data = sessionStorage.getItem('userData')
     const dataJson = JSON.parse(data)
-    console.log(dataJson, 'บอริ่ง')
+    // console.log(dataJson, 'บอริ่ง')
     const id = dataJson.user.orgId
 
     CreatData(id, dataJson.token).then(result => {
@@ -494,8 +499,8 @@ class DashboardCrypto extends React.Component {
   }
 
   setStore = d => {
-    console.log('setstore')
-    console.log(d, 'llll')
+    // console.log('setstore')
+    // console.log(d, 'llll')
     localStorage.setItem('userUnit', JSON.stringify(d))
   }
 
@@ -504,9 +509,9 @@ class DashboardCrypto extends React.Component {
     const dataJson = JSON.parse(data)
     const id = dataJson.user.orgId
     const houseid = item.id
-    console.log(item, 'kffk')
-    console.log('show drawer')
-    console.log(item.id)
+    // console.log(item, 'kffk')
+    // console.log('show drawer')
+    // console.log(item.id)
     this.setState({
       visible: true,
       // selectedVillage : item.properties.id
@@ -541,7 +546,7 @@ class DashboardCrypto extends React.Component {
       })
     } else if (e === 6) {
       const properties = data1.map(item => item.properties)
-      console.log(properties, 'มหานที')
+      // console.log(properties, 'มหานที')
       const villageName = properties.filter(d => d.tag.indexOf('pingpong-risk') >= 0 && d)
       const coordinates = villageName.map(d => ({ ...d, icon: greenIcon }))
       // console.log(villageName)
@@ -619,9 +624,9 @@ class DashboardCrypto extends React.Component {
     this.setState({ coordinates })
   }
 
-  clicknum = value => {
-    console.log('changed', value)
-  }
+  // clicknum = value => {
+  //   console.log('changed', value)
+  // }
 
   renderBaseLayerControl() {
     return (
@@ -670,19 +675,18 @@ class DashboardCrypto extends React.Component {
     const mark = data1.map(item => item.geometry)
     const aa12 = data1.map(item => item.properties)
     const housename = aa12.map(object => object.villageName)
-    console.log(housename, clickTag, clicknum, 'uuuu')
+    console.log(housename, clickTag, clicknum)
     const vln = villageName.map(item => item.villageName)
     const mySet = new Set(vln)
     const set1 = Array.from(mySet)
-    // console.log(set1, 'มาสิ');
+    console.log(aa12, 'มาสิ')
     const position = [lat, lng]
     console.log(items, tawat, mark, click, checkVillage, 'พอไหม')
 
     function refreshPage() {
       window.location.reload(false)
     }
-
-    console.log(coordinates, villageName)
+    // console.log(coordinates, villageName,'pokifuh')
 
     const MakeItem = X => {
       return <Option value={X}>{X}</Option>
@@ -775,16 +779,15 @@ class DashboardCrypto extends React.Component {
               </Form.Item>
             </Form>
           </Col>
-          <Col span={6}>
+          {/* <Col span={6}>
             <Form layout="inline">
               <Form.Item label="อายุ">
                 <InputNumber min={30} max={100} defaultValue={30} onChange={this.clicknum} />
                 &nbsp; ขึ้นไป
               </Form.Item>
             </Form>
-          </Col>
+          </Col> */}
         </Row>
-        {/* <Complete /> */}
         <br />
         <Map
           style={{ width: '81vw', height: '70vh' }}
@@ -794,63 +797,74 @@ class DashboardCrypto extends React.Component {
         >
           <FullscreenControl position="topleft" />
           {this.renderBaseLayerControl()}
-          {coordinates.map(item => {
-            return (
-              // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
-              <Marker
-                onMouseOver={e => {
-                  e.target.openPopup()
-                }}
-                onMouseOut={e => {
-                  e.target.closePopup()
-                }}
-                onClick={() => this.showDrawer(item)}
-                position={[item.location.coordinates[1], item.location.coordinates[0]]}
-                icon={item.icon}
-              >
-                <Popup>
-                  <span>
-                    <p>หมู่บ้าน:{item.villageName}</p>
-                    <p>บ้านเลขที่:{item.no}</p>
-                    <p>tag:{item.tag}</p>
-                    <p>รพ.สต.:{item.id}</p>
-                  </span>
-                </Popup>
-                <Drawer
-                  title={`${housenovillage.map(obj => obj.no)} ${housenovillage.map(
-                    obj => obj.villageName,
-                  )}`}
-                  // title={`${houseaddress.no} ${houseaddress.villageName}`}
-                  placement="right"
-                  onClose={this.onClose}
-                  visible={visible}
-                  getContainer={false}
-                  style={{ position: 'absolute', overflow: 'hidden', width: 240 }}
+          <ZoomControl position="bottomright" />
+          {aa12 &&
+            coordinates.map(item => {
+              console.log(coordinates, 'coordinest')
+              console.log(submit, 'subbbbb')
+              if (submit) {
+                // eslint-disable-next-line no-unused-vars
+                let aa = myIcon
+                if (item.no + item.villageName === submit) {
+                  aa = myIcon
+                }
+              }
+              return (
+                // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
+                <Marker
+                  onMouseOver={e => {
+                    e.target.openPopup()
+                  }}
+                  onMouseOut={e => {
+                    e.target.closePopup()
+                  }}
+                  onClick={() => this.showDrawer(item)}
+                  position={[item.location.coordinates[1], item.location.coordinates[0]]}
+                  icon={item.icon}
                 >
-                  <span>
-                    {house.map(d => {
-                      return (
-                        <div>
-                          <Row>
-                            <Col>
-                              <Link to="/dashboard/userdetail">
-                                <Button onClick={() => this.setStore(d)}>
-                                  {d.firstname}&nbsp;{d.lastname}&nbsp;อายุ&nbsp;
-                                  {monentFun.diff(d.birthDate, 'years')}&nbsp;ปี
-                                </Button>
-                              </Link>
-                              {/* <Link to="/dashboard/userdetail">{d.firstname}&nbsp;{d.lastname}&nbsp;อายุ&nbsp;{monentFun.diff(d.birthDate, 'years')}&nbsp;ปี</Link> */}
-                            </Col>
-                          </Row>
-                          <Divider />
-                        </div>
-                      )
-                    })}
-                  </span>
-                </Drawer>
-              </Marker>
-            )
-          })}
+                  <Popup>
+                    <span>
+                      <p>หมู่บ้าน:{item.villageName}</p>
+                      <p>บ้านเลขที่:{item.no}</p>
+                      <p>tag:{item.tag}</p>
+                      <p>รพ.สต.:{item.id}</p>
+                    </span>
+                  </Popup>
+                  <Drawer
+                    title={`${housenovillage.map(obj => obj.no)} ${housenovillage.map(
+                      obj => obj.villageName,
+                    )}`}
+                    // title={`${houseaddress.no} ${houseaddress.villageName}`}
+                    placement="right"
+                    onClose={this.onClose}
+                    visible={visible}
+                    getContainer={false}
+                    style={{ position: 'absolute', overflow: 'hidden', width: 240 }}
+                  >
+                    <span>
+                      {house.map(d => {
+                        return (
+                          <div>
+                            <Row>
+                              <Col>
+                                <Link to="/dashboard/userdetail">
+                                  <Button onClick={() => this.setStore(d)}>
+                                    {d.firstname}&nbsp;{d.lastname}&nbsp;อายุ&nbsp;
+                                    {monentFun.diff(d.birthDate, 'years')}&nbsp;ปี
+                                  </Button>
+                                </Link>
+                                {/* <Link to="/dashboard/userdetail">{d.firstname}&nbsp;{d.lastname}&nbsp;อายุ&nbsp;{monentFun.diff(d.birthDate, 'years')}&nbsp;ปี</Link> */}
+                              </Col>
+                            </Row>
+                            <Divider />
+                          </div>
+                        )
+                      })}
+                    </span>
+                  </Drawer>
+                </Marker>
+              )
+            })}
         </Map>
       </div>
     )

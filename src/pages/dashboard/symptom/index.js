@@ -21,21 +21,21 @@ import data1 from './data1'
 
 const myIcon = L.icon({
   iconUrl: 'blue.png',
-  iconSize: [25, 30],
+  iconSize: [0, 0],
   iconAnchor: [12.5, 41],
   popupAnchor: [0, -41],
 })
 
 const redIcon = L.icon({
   iconUrl: 'iconred.png',
-  iconSize: [25, 30],
+  iconSize: [35, 40],
   iconAnchor: [12.5, 41],
   popupAnchor: [0, -41],
 })
 
 const violetIcon = L.icon({
   iconUrl: 'violet.png',
-  iconSize: [25, 30],
+  iconSize: [35, 40],
   iconAnchor: [12.5, 41],
   popupAnchor: [0, -41],
 })
@@ -263,7 +263,8 @@ class Symptom extends React.Component {
     const monentFun = moment()
     const position = [lat, lng]
     console.log(items, tawat, selectedVillage, person)
-    console.log(data1, houseaddress, housenovillage, 'ข้อมูลdata1')
+    console.log(houseaddress, ';l;;;kmiuygtfhgdstfygh')
+    console.log(data1, houseaddress, 'ข้อมูลdata1')
     console.log(house, 'lllll')
 
     function refreshPage() {
@@ -367,6 +368,7 @@ class Symptom extends React.Component {
                 </Popup>
                 <div className="site-drawer-render-in-current-wrapper">
                   <Drawer
+                    // title={`${houseaddress.no} ${houseaddress.villageName}`}
                     title={`${housenovillage.map(obj => obj.no)} ${housenovillage.map(
                       obj => obj.villageName,
                     )}`}

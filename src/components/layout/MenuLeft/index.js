@@ -198,10 +198,17 @@ class MenuLeft extends React.Component {
       }
       return key
     })
-    this.setState({
-      activeItem: activeItem.key,
-      activeSubmenu: activeSubmenu.key,
-    })
+    if (activeItem && activeSubmenu) {
+      this.setState({
+        activeItem: activeItem.key,
+        activeSubmenu: activeSubmenu.key,
+      })
+    } else {
+      this.setState({
+        activeItem: null,
+        activeSubmenu: null,
+      })
+    }
   }
 
   generateMenuItems = () => {

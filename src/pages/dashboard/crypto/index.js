@@ -697,7 +697,7 @@ class DashboardCrypto extends React.Component {
         <>
           <Form labelCol={{ span: 2 }} wrapperCol={{ span: 20 }} layout="horizontal">
             <Form.Item label="กลุ่ม">
-              <Select onChange={this.checkIdItems} defaultValue={click}>
+              <Select onChange={this.checkIdItems} defaultValue={click} style={{ width: 300 }}>
                 <Select.Option value={1}>
                   <img src="circleblack.png" alt="" width="20" height="20" />{' '}
                   ป่วยรุนแรง(โรคแทรกซ้อน)
@@ -759,13 +759,34 @@ class DashboardCrypto extends React.Component {
             </Col>
           </Row>
         </div>
-        <Row>
+        <div className="row">
+          <div className="col-xl-4 col-lg-12">
+            <Complete />
+          </div>
+        </div>
+        {/* <Row>
           <Col span={16} />
           <Col span={8}>
             <Complete />
           </Col>
-        </Row>
-        <Row>
+        </Row> */}
+        <p style={{ color: 'red' }}>ประเมินความเสี่ยง DM/HT</p>
+        <div className="row">
+          <div className="col-lg-4">
+            <FormSizeDemo />
+          </div>
+          <div className="col-lg-4">
+            <Form layout="inline">
+              <Form.Item label="หมู่บ้าน">
+                <Select style={{ width: 300 }} onChange={this.checkVillage}>
+                  {set1.map(MakeItem)}
+                </Select>
+              </Form.Item>
+            </Form>
+          </div>
+          <div className="col-lg-4" />
+        </div>
+        {/* <Row>
           <p style={{ color: 'red' }}>ประเมินความเสี่ยง DM/HT</p>
           <Col span={10}>
             <FormSizeDemo />
@@ -779,18 +800,18 @@ class DashboardCrypto extends React.Component {
               </Form.Item>
             </Form>
           </Col>
-          {/* <Col span={6}>
+          <Col span={6}>
             <Form layout="inline">
               <Form.Item label="อายุ">
                 <InputNumber min={30} max={100} defaultValue={30} onChange={this.clicknum} />
                 &nbsp; ขึ้นไป
               </Form.Item>
             </Form>
-          </Col> */}
-        </Row>
+          </Col>
+        </Row> */}
         <br />
         <Map
-          style={{ width: '81vw', height: '70vh' }}
+          style={{ height: '70vh' }}
           center={position}
           zoom={14}
           // fullscreenControl

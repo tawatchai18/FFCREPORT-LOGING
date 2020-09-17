@@ -304,7 +304,19 @@ class Symptom extends React.Component {
         <div className="air__utils__heading">
           <h5>สุขภาวะ/อาการ</h5>
         </div>
-        <Row>
+        <div className="row">
+          <div className="col-xl-4 col-lg-12">
+            <Radio.Group onChange={this.checkIdItems}>
+              <Radio value={1}>ผู้ป่วยเรื้อรัง</Radio>
+              <Radio value={2}>ผู้พิการ</Radio>
+            </Radio.Group>
+          </div>
+          <div className="col-xl-2 col-lg-12" />
+          <div className="col-xl-4 col-lg-12">
+            <Complete />
+          </div>
+        </div>
+        {/* <Row>
           <Col span={8}>
             <Radio.Group onChange={this.checkIdItems}>
               <Radio value={1}>ผู้ป่วยเรื้อรัง</Radio>
@@ -316,11 +328,11 @@ class Symptom extends React.Component {
             {' '}
             <Complete />
           </Col>
-        </Row>
+        </Row> */}
         <br />
         <br />
         <Map
-          style={{ width: '81vw', height: '70vh' }}
+          style={{ height: '70vh' }}
           center={position}
           zoom={14}
           // fullscreenControl

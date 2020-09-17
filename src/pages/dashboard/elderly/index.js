@@ -242,7 +242,7 @@ class Elderly extends React.Component {
         <br />
         <br />
         <Map
-          style={{ width: '81vw', height: '70vh' }}
+          style={{ height: '70vh' }}
           center={position}
           zoom={14}
           // fullscreenControl

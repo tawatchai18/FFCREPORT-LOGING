@@ -27,7 +27,6 @@ import {
 } from '../../../components/system/Auth/Login/PostData'
 import data1 from './data1'
 import 'leaflet-draw/dist/leaflet.draw.css'
-// import EditControl from './EditControl'
 
 const myIcon = L.icon({
   iconUrl: 'https://unpkg.com/leaflet@1.0.1/dist/images/marker-icon-2x.png',
@@ -67,6 +66,7 @@ class Editmark extends React.Component {
       noDrag: null,
       idhouse: [],
       updatehouse: [],
+      dragMarkerLatlng: [13.52, 100],
     }
     this.baseMaps = [
       {
@@ -141,8 +141,6 @@ class Editmark extends React.Component {
     const dataJson = JSON.parse(data)
     const id = dataJson.user.orgId
     const houseid = item.properties.id
-    console.log(item, 'kffk')
-    console.log('show drawer')
     console.log(item.properties.id)
     this.setState(
       {
@@ -176,8 +174,8 @@ class Editmark extends React.Component {
     houseMap(id, dataJson.token, houseid).then(
       result => {
         this.setState({
-          // houseaddress: result.features,
-          houseaddress: result,
+          houseaddress: result.features,
+          // houseaddress: result,
           isLoaded: true,
         })
       },
@@ -212,13 +210,22 @@ class Editmark extends React.Component {
     })
   }
 
-  submitok = (idhouse, e) => {
-    console.log(idhouse, e, 'มีไอดีไหม')
+  onDrag = event => {
+    this.setState({
+      // eslint-disable-next-line no-underscore-dangle
+      dragMarkerLatlng: event.target._latlng,
+    })
+  }
+
+  submitok = (idhouse, dragMarkerLatlng) => {
+    console.log(idhouse, dragMarkerLatlng, 'มีไอดีไหม')
+    // const latlongmark = this.latlngmarker
+    // console.log(latlongmark,'lololo');
     const data = sessionStorage.getItem('userData')
     const dataJson = JSON.parse(data)
     const id = dataJson.user.orgId
     const houseid = idhouse.id
-    editemarker(id, dataJson.token, houseid, idhouse, e).then(
+    editemarker(id, dataJson.token, houseid, idhouse, dragMarkerLatlng).then(
       result => {
         this.setState({
           updatehouse: result,
@@ -232,6 +239,8 @@ class Editmark extends React.Component {
         })
       },
     )
+    // alert('jgngkj')
+    // return window.location.reload(false)
   }
 
   handleRemove = () => {
@@ -294,6 +303,7 @@ class Editmark extends React.Component {
       noDrag,
       idhouse,
       updatehouse,
+      dragMarkerLatlng,
     } = this.state
     const onsubmit = this.handleValidSubmit
     console.log(showDraggableMarker, '1234567677')
@@ -338,9 +348,6 @@ class Editmark extends React.Component {
       return (
         <AutoComplete
           style={{ width: 250, Color: '#000' }}
-          // onSelect={val => {
-          //   this.setState({ submit: val })
-          // }}
           onChange={onsubmit}
           dataSource={haveLocation.map(d => d.no + d.villageName)}
           defaultValue={submit}
@@ -391,10 +398,9 @@ class Editmark extends React.Component {
         <br />
         <br />
         <center>
-          <Map style={{ width: '81vw', height: '70vh' }} center={position} zoom={14}>
+          <Map style={{ height: '70vh' }} center={position} zoom={14}>
             <FullscreenControl position="topleft" />
             {this.renderBaseLayerControl()}
-            {/* {geojson.map(item => { */}
             {data1.map(item => {
               let markerIcon1 = myIcon
               if (submit) {
@@ -460,12 +466,14 @@ class Editmark extends React.Component {
             })}
             {showDraggableMarker && (
               <Marker
-                style={{ position: 'absolute', zIndex: 400 }}
-                position={[13.52, 100]}
+                key="draggable-marker"
+                marker_index="draggable-marker"
+                style={{ position: 'absolute', zIndex: 4000 }}
+                position={dragMarkerLatlng}
                 draggable
-                // onDrag={e => console.log(e.latlng,e.latlng.lat,'latlongggggggg122345678')}
-                ondrag={e => this.submitok(idhouse, e)}
+                onDragend={this.onDrag}
                 icon={greenIcon}
+                onChange={this.zoomIn}
               >
                 <Popup>
                   <span>
@@ -474,7 +482,8 @@ class Editmark extends React.Component {
                     <p>tag:</p>
                   </span>
                   <Row>
-                    {/* <Button onClick={this.submitok(idhouse)}>บันทึก</Button>&nbsp; */}
+                    <Button onClick={() => this.submitok(idhouse, dragMarkerLatlng)}>บันทึก</Button>
+                    &nbsp;
                     <Button onClick={this.handleRemove}>ยกเลิก</Button>
                   </Row>
                 </Popup>

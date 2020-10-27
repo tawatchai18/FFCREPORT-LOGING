@@ -1,36 +1,34 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import Highcharts from "highcharts";
-import HighchartsReact from "highcharts-react-official";
-import { Table, Collapse } from 'antd';
+import Highcharts from 'highcharts'
+import HighchartsReact from 'highcharts-react-official'
+import { Table, Collapse } from 'antd'
 
-const { Panel } = Collapse;
+const { Panel } = Collapse
 
-class Chart3 extends React.Component {
-
+class Chronicpiechart extends React.Component {
   render() {
     function callback(key) {
-      console.log(key);
+      console.log(key)
     }
     const { submit, namehospital, chronic } = this.props
     const pp = chronic.byIcd10
 
     if (pp !== undefined) {
-
-      const result = pp.filter((member) => {
+      const result = pp.filter(member => {
         return member.y > 0
       })
       const chronicpiechart = result.map(object => ({
         name: object.name,
         y: object.y,
-      }));
-      const chronicslice = chronicpiechart.slice(0,20)
-      console.log(chronicpiechart.slice(0,20),'keysSorted');
-  
+      }))
+      const chronicslice = chronicpiechart.slice(0, 20)
+      console.log(chronicpiechart.slice(0, 20), 'keysSorted')
+
       const chronicpie = pp.map(object => ({
         name: object.name,
         y: object.y,
-      }));
+      }))
       const columns = [
         {
           title: 'ชื่อ',
@@ -41,55 +39,61 @@ class Chart3 extends React.Component {
           title: 'จำนวน',
           dataIndex: 'y',
           key: '1',
-          render: (value) => {
-            return <span>{value.toLocaleString('en-US')}</span>;
+          render: value => {
+            return <span>{value.toLocaleString('en-US')}</span>
           },
         },
-      ];
+      ]
 
       Highcharts.setOptions({
         lang: {
-          thousandsSep: ','
-        }
-      });
+          thousandsSep: ',',
+        },
+      })
       const pieChartchronics = {
         chart: {
           plotBackgroundColor: null,
           plotBorderWidth: null,
           plotShadow: false,
-          type: 'pie'
+          type: 'pie',
         },
         credits: {
-          enabled: false
+          enabled: false,
         },
         colors: ['rgb(144, 237, 125)', 'rgb(247, 163, 92)', '#FF4560', '#333333', '#008FFB'],
         title: {
           // text: `ผู้ป่วยโรคเรื้อรัง</br></b><br/>${hospital}`
-          text: namehospital !== '' ? `จำนวนผู้ป่วยโรคเรื้อรังแยกตามรายโรค</b></br><br/>${namehospital}` : 'จำนวนผู้ป่วยโรคเรื้อรังแยกตามรายโรค',
+          text:
+            namehospital !== ''
+              ? `จำนวนผู้ป่วยโรคเรื้อรังแยกตามรายโรค</b></br><br/>${namehospital}`
+              : 'จำนวนผู้ป่วยโรคเรื้อรังแยกตามรายโรค',
         },
         tooltip: {
-          pointFormat: '{series.name}: <b>{point.y}</b>'
+          pointFormat: '{series.name}: <b>{point.y}</b>',
         },
         plotOptions: {
           pie: {
             allowPointSelect: true,
             cursor: 'pointer',
             dataLabels: {
-              enabled: false
+              enabled: false,
             },
             // showInLegend: true
-          }
+          },
         },
-        series: [{
-          name: 'จำนวน',
-          colorByPoint: true,
-          data: chronicslice
-        }]
+        series: [
+          {
+            name: 'จำนวน',
+            colorByPoint: true,
+            data: chronicslice,
+          },
+        ],
       }
 
       return (
         <div>
-          <br /><br />
+          <br />
+          <br />
           <HighchartsReact highcharts={Highcharts} options={pieChartchronics} onChange={submit} />
           <Collapse onChange={callback}>
             <Panel header="จำนวนผู้ป่วยโรคเรื้อรังแยกตามรายโรค(กดดูรายละเอียด)" key="1">
@@ -107,4 +111,4 @@ class Chart3 extends React.Component {
   }
 }
 
-export default Chart3
+export default Chronicpiechart

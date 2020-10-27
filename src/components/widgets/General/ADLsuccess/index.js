@@ -1,6 +1,6 @@
 import React from 'react'
 
-class General2 extends React.Component {
+class ADLsuccess extends React.Component {
   render() {
     const { pyramid60up, user, isLoaded, error } = this.props
     const active = user.MID + user.OK + user.VERYHI
@@ -38,4 +38,4 @@ class General2 extends React.Component {
   }
 }
 
-export default General2
+export default ADLsuccess

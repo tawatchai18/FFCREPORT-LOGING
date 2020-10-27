@@ -5,20 +5,10 @@ import { Scrollbars } from 'react-custom-scrollbars'
 // import TopBer from 'components/layout/TopBar'
 import Footer from 'components/layout/Footer'
 import { AutoComplete, Input, Icon, Row, Button } from 'antd'
-// lat+lng/ length
-// import swal from 'sweetalert';
 import L from 'leaflet'
 import 'react-leaflet-fullscreen/dist/styles.css'
 import FullscreenControl from 'react-leaflet-fullscreen'
-import {
-  Map,
-  TileLayer,
-  Marker,
-  WMSTileLayer,
-  LayersControl,
-  Popup,
-  // FeatureGroup,
-} from 'react-leaflet'
+import { Map, TileLayer, Marker, WMSTileLayer, LayersControl, Popup } from 'react-leaflet'
 import {
   MapData,
   haveLocat,
@@ -77,10 +67,9 @@ class ForgotPassword extends React.Component {
       searchedite: '',
       filtersearchs: [],
       filtersearchedite: [],
-      // latlngcenter: [],
-      latlngcenter: {
-        bbox: [],
-      },
+      // latlngcenter: {
+      //   bbox: [],
+      // },
       MarkerImg: myIcon,
     }
     this.baseMaps = [
@@ -106,7 +95,6 @@ class ForgotPassword extends React.Component {
       zoom: 10,
       layers: [this.basemaps],
     }
-    // this.handleValidSubmit = this.handleValidSubmit.bind(this)
   }
 
   componentDidMount() {
@@ -130,7 +118,6 @@ class ForgotPassword extends React.Component {
             .filter(d => d)
           this.setState({
             geojson: result.features,
-            latlngcenter: result,
             filtersearchedite: c,
             isLoaded: true,
             lat: ansY,
@@ -353,8 +340,8 @@ class ForgotPassword extends React.Component {
     })
   }
 
-  editeLocation = aa12 => {
-    console.log(aa12)
+  editeLocation = () => {
+    // console.log(aa12)
     // const data = aa12.map(item => item.no + item.villageName)
     this.setState({
       // namevillagevsnoedite: data,
@@ -419,7 +406,7 @@ class ForgotPassword extends React.Component {
       selectedVillage,
       person,
       zoomLevel,
-      haveLocation,
+      // haveLocation,
       showDraggableMarker,
       editeDraggableMarker,
       villageDrag,
@@ -431,7 +418,6 @@ class ForgotPassword extends React.Component {
       newid,
       edithouse,
       newlatlng,
-      latlngcenter,
       // novsvillageName,
       // namevillagevsnoedite,
       MarkerImg,
@@ -445,10 +431,9 @@ class ForgotPassword extends React.Component {
       filtersearchedite,
     } = this.state
     console.log(updatehouse, isLoaded, error)
-    const aa12 = geojson.map(item => item.properties)
+    // const aa12 = geojson.map(item => item.properties)
     const position = [lat, lng]
     console.log(lat, lng, 'position')
-    console.log(latlngcenter.bbox, '234')
     //  const ansX=(latlngcenter.bbox[2] + latlngcenter.bbox[0])/2
     //  const ansY = (latlngcenter.bbox[3] + latlngcenter.bbox[1])/2
     //  console.log(ansX,ansY,'test');
@@ -513,15 +498,11 @@ class ForgotPassword extends React.Component {
         </div>
         <div className="row">
           <div className="col-xl-4 col-lg-6">
-            <Button
-              type="primary"
-              style={{ width: 200 }}
-              onClick={() => this.updateLocation(haveLocation)}
-            >
+            <Button type="primary" style={{ width: 200 }} onClick={() => this.updateLocation()}>
               เพิ่มพิกัด
             </Button>
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <Button type="primary" style={{ width: 200 }} onClick={() => this.editeLocation(aa12)}>
+            <Button type="primary" style={{ width: 200 }} onClick={() => this.editeLocation()}>
               แก้ไขพิกัด
             </Button>
           </div>

@@ -5,10 +5,8 @@ import { AutoComplete, Button, Icon, Input, Tabs } from 'antd'
 import ADL from 'components/widgets/Charts/ADL'
 import Chronicpiechart from 'components/widgets/Charts/chronicpiechart'
 import Chronicpiechartdrilldown from 'components/widgets/Charts/chronicpiechartdrilldown'
-// import Chart5 from 'components/widgets/Charts/5';
 import Departments from 'components/widgets/General/departments'
 import ADLsuccess from 'components/widgets/General/ADLsuccess'
-// import moment from 'moment-timezone'
 
 const { TabPane } = Tabs
 

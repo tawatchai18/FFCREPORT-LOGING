@@ -2,7 +2,8 @@
 import { Base64 } from 'js-base64'
 
 // const API = 'https://ffcmaekawtom.herokuapp.com/v1'
-const API = 'https://api-test.ffc.in.th/v1'
+// const API = 'https://api-test.ffc.in.th/v1'
+const API = 'https://api.ffc.in.th/v1'
 
 export function PostData(type, userData, id) {
   return new Promise((resolve, reject) => {

@@ -184,8 +184,9 @@ class Symptom extends React.Component {
 
     houseMap(id, dataJson.token, houseid).then(
       result => {
+        console.log(result, 'address')
         this.setState({
-          houseaddress: result,
+          houseaddress: result.features,
           isLoaded: true,
         })
       },
@@ -277,10 +278,10 @@ class Symptom extends React.Component {
     // const housenovillage = houseaddress.map(object => object.properties)
     const monentFun = moment()
     const position = [lat, lng]
+    const titleno = houseaddress.map(it => it.properties.no)
+    const titlevillageName = houseaddress.map(it => it.properties.villageName)
     console.log(items, selectedVillage)
-    // console.log(houseaddress, ';l;;;kmiuygtfhgdstfygh')
-    // console.log(data1, houseaddress, 'ข้อมูลdata1')
-    // console.log(house, 'lllll')
+    // console.log(houseaddress.map(item => item.properties.no + item.properties.villageName),housenovillage, ';l;;;kmiuygtfhgdstfygh')
 
     function refreshPage() {
       window.location.reload(false)
@@ -374,8 +375,9 @@ class Symptom extends React.Component {
                 </Popup>
                 <div className="site-drawer-render-in-current-wrapper">
                   <Drawer
-                    title={`${houseaddress.no} ${houseaddress.villageName}`}
-                    // title={`${housenovillage.map(obj => obj.no)} ${housenovillage.map(
+                    title={`${titleno} ${titlevillageName}`}
+                    // title={`${houseaddress.no} ${houseaddress.villageName}`}
+                    // title={`${houseaddress.map(obj => obj.no)} ${houseaddress.map(
                     //   obj => obj.villageName,
                     // )}`}
                     placement="right"

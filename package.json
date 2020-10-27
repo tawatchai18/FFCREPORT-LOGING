@@ -90,7 +90,7 @@
     "store": "^2.0.12",
     "sweetalert": "^2.1.2"
   },
-  "homepage": "https://ffc.in.th/dashboard",
+  "homepage": "https://ffc.in.th/console",
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.4.4",
     "babel-plugin-import": "^1.12.0",

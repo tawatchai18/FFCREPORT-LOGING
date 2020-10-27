@@ -31,7 +31,8 @@ class DashboardAnalytics extends React.Component {
 
   componentDidMount() {
     // ชื่อกับ id
-    fetch(`http://localhost:7000/report/convert`)
+    fetch(`https://report-api.ffc.in.th/report/convert`)
+      // fetch(`http://localhost:7000/report/convert`)
       .then(res => res.json())
       .then(json => {
         this.setState({
@@ -40,7 +41,8 @@ class DashboardAnalytics extends React.Component {
       })
 
     // กราฟ ปิรามิด
-    fetch(`http://localhost:7000/report/pyramid`)
+    fetch(`https://report-api.ffc.in.th/report/pyramid`)
+      // fetch(`http://localhost:7000/report/pyramid`)
       .then(res => res.json())
       .then(
         json => {
@@ -56,8 +58,8 @@ class DashboardAnalytics extends React.Component {
           })
         },
       )
-
-    fetch(`http://localhost:7000/report/pyramid60up`)
+    fetch(`https://report-api.ffc.in.th/report/pyramid60up`)
+      // fetch(`http://localhost:7000/report/pyramid60up`)
       .then(res => res.json())
       .then(
         json => {
@@ -75,7 +77,8 @@ class DashboardAnalytics extends React.Component {
       )
 
     // pie อัตราส่วนผู้สูงอายุ
-    fetch(`http://localhost:7000/report/elderlyrat`)
+    fetch(`https://report-api.ffc.in.th/report/elderlyrat`)
+      // fetch(`http://localhost:7000/report/elderlyrat`)
       .then(res => res.json())
       .then(
         json => {
@@ -93,7 +96,8 @@ class DashboardAnalytics extends React.Component {
       )
 
     // piechart โรคเรื้อรัง
-    fetch(`http://localhost:7000/report/chronic`)
+    fetch(`https://report-api.ffc.in.th/report/chronic`)
+      // fetch(`http://localhost:7000/report/chronic`)
       .then(res => res.json())
       .then(
         json => {
@@ -111,7 +115,8 @@ class DashboardAnalytics extends React.Component {
       )
 
     // piechronicdilldown โรคเรื้อรัง
-    fetch(`http://localhost:7000/report/chronicdilldown`)
+    fetch(`https://report-api.ffc.in.th/report/chronicdilldown`)
+      // fetch(`http://localhost:7000/report/chronicdilldown`)
       .then(res => res.json())
       .then(
         json => {
@@ -136,8 +141,9 @@ class DashboardAnalytics extends React.Component {
     })
     if (organization !== undefined) {
       const idOption = organization.id
-
-      fetch(`http://localhost:7000/report/pyramid/${idOption}`)
+      const rnd = Math.floor(Math.random() * 1000)
+      fetch(`https://report-api.ffc.in.th/report/pyramid/${idOption}?rnd=${rnd}`)
+        // fetch(`http://localhost:7000/report/pyramid/${idOption}`)
         .then(res => res.json())
         .then(json => {
           this.setState({
@@ -146,7 +152,8 @@ class DashboardAnalytics extends React.Component {
           })
         })
 
-      fetch(`http://localhost:7000/report/pyramid60up/${idOption}`)
+      fetch(`https://report-api.ffc.in.th/report/pyramid60up/${idOption}?rnd=${rnd}`)
+        // fetch(`http://localhost:7000/report/pyramid60up/${idOption}`)
         .then(res => res.json())
         .then(json => {
           this.setState({
@@ -155,7 +162,8 @@ class DashboardAnalytics extends React.Component {
           })
         })
 
-      fetch(`http://localhost:7000/report/elderlyrat/${idOption}`)
+      fetch(`https://report-api.ffc.in.th/report/elderlyrat/${idOption}?rnd=${rnd}`)
+        // fetch(`http://localhost:7000/report/elderlyrat/${idOption}`)
         .then(res => res.json())
         .then(json => {
           this.setState({
@@ -164,7 +172,8 @@ class DashboardAnalytics extends React.Component {
           })
         })
 
-      fetch(`http://localhost:7000/report/chronic/${idOption}`)
+      fetch(`https://report-api.ffc.in.th/report/chronic/${idOption}?rnd=${rnd}`)
+        // fetch(`http://localhost:7000/report/chronic/${idOption}`)
         .then(res => res.json())
         .then(json => {
           this.setState({
@@ -173,7 +182,8 @@ class DashboardAnalytics extends React.Component {
           })
         })
 
-      fetch(`http://localhost:7000/report/chronicdilldown/${idOption}`)
+      fetch(`https://report-api.ffc.in.th/report/chronicdilldown/${idOption}?rnd=${rnd}`)
+        // fetch(`http://localhost:7000/report/chronicdilldown/${idOption}`)
         .then(res => res.json())
         .then(json => {
           this.setState({

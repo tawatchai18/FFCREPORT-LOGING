@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom'
 // import { Form, Input, Button } from 'antd'
 import { AvForm, AvGroup, AvInput, AvFeedback } from 'availity-reactstrap-validation'
 import { Button, Label, Col, Row } from 'reactstrap'
+import swal from 'sweetalert'
 import style from '../style.module.scss'
 import { PostData, Data } from './PostData'
 
@@ -52,15 +53,19 @@ class Login extends Component {
       // ส่งตัวแปรเข้า PostData น่าจะใช้แค่ username กับ password ปะ???
       PostData('handleValidSubmit', { username, password }, id).then(result => {
         const responseJson = result
-        console.log(responseJson, 'wwww')
         if (responseJson.user) {
           localStorage.setItem('userdata', JSON.stringify(responseJson))
           sessionStorage.setItem('userData', JSON.stringify(responseJson))
           // eslint-disable-next-line react/no-unused-state
           this.setState({ redirectToReferrer: true })
         } else if (result.code === 401) {
+          swal({
+            // title: "Are you sure?",
+            text: 'ชื่อผู้ใช้ หรือ รหัสไม่ตรงกับในระบบ กรุณาลองใช้ใหม่อีกครั้ง',
+            icon: 'warning',
+          })
           // eslint-disable-next-line no-alert
-          alert('not connect', result.code)
+          // alert('ชื่อผู้ใช้ หรือ รหัสไม่ตรงกับในระบบ กรุณาลองใช้ใหม่อีกครั้ง', result.code)
         }
       })
     }
@@ -81,11 +86,11 @@ class Login extends Component {
   render() {
     const { loading, redirectToReferrer } = this.state
     if (redirectToReferrer) {
-      return <Redirect to="/dashboard/crypto" />
+      return <Redirect to="/dashboard/elderly" />
     }
 
     if (sessionStorage.getItem('userData')) {
-      return <Redirect to="/dashboard/crypto" />
+      return <Redirect to="/dashboard/elderly" />
     }
 
     return (
@@ -211,7 +216,7 @@ class Login extends Component {
           </Link> */}
         </div>
         <div className="mt-auto pb-5 pt-5">
-          <ul
+          {/* <ul
             className={`${style.footerNav} list-unstyled d-flex mb-2 flex-wrap justify-content-center`}
           >
             <li>
@@ -226,8 +231,10 @@ class Login extends Component {
             <li>
               <a href="javascript: void(0);">Contacts</a>
             </li>
-          </ul>
-          <div className="text-gray-4 text-center">© 2019 Mediatec. All rights reserved.</div>
+          </ul> */}
+          <div className="text-gray-4 text-center">
+            Copyright © 2019 NSTDA National Science and Technology Development Agency
+          </div>
         </div>
       </div>
     )

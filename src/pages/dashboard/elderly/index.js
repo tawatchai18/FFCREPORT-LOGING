@@ -2,19 +2,17 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
+import Footer from 'components/layout/Footer'
 import { Radio, AutoComplete, Input, Icon, Row, Col, Drawer, Divider, Button } from 'antd'
 import { Map, TileLayer, Marker, Popup, WMSTileLayer, LayersControl } from 'react-leaflet'
 import L from 'leaflet'
-import 'react-leaflet-fullscreen/dist/styles.css'
 import FullscreenControl from 'react-leaflet-fullscreen'
 import {
   MapData,
-  CreatData,
+  // CreatData,
   UserDatamap,
   houseMap,
 } from '../../../components/system/Auth/Login/PostData'
-// import 'react-leaflet-fullscreen-control'
-import data1 from './data1'
 
 const myIcon = L.icon({
   iconUrl: 'blue.png',
@@ -23,14 +21,18 @@ const myIcon = L.icon({
   popupAnchor: [0, -41],
 })
 
+// const BlueIcon = L.icon({
+//   iconUrl: 'blue.png',
+//   iconSize: [25, 30],
+//   iconAnchor: [12.5, 41],
+//   popupAnchor: [0, -41],
+// })
+
 const greenIcon = L.icon({
   iconUrl: 'icongreen.png',
   iconSize: [35, 40],
   iconAnchor: [12.5, 41],
   popupAnchor: [0, -41],
-  // iconSize: [25, 30],
-  // iconAnchor: [12.5, 41],
-  // popupAnchor: [0, -41],
 })
 
 const yelloIcon = L.icon({
@@ -41,7 +43,7 @@ const yelloIcon = L.icon({
 })
 
 const redIcon = L.icon({
-  iconUrl: 'iconred.png',
+  iconUrl: 'redicon.png',
   iconSize: [35, 40],
   iconAnchor: [12.5, 41],
   popupAnchor: [0, -41],
@@ -54,12 +56,14 @@ class Elderly extends React.Component {
       geojson: [],
       houseaddress: [],
       house: [],
-      lat: 13.520531624809204,
-      lng: 100.00699460506439,
+      // lat: 13.52,
+      // lng: 100,
+      lat: '',
+      lng: '',
       submit: '',
       clickTag: '',
       visible: false,
-      // selectedVillage: null
+      zoomLevel: 14,
     }
     localStorage.clear()
     this.baseMaps = [
@@ -83,25 +87,29 @@ class Elderly extends React.Component {
   componentDidMount() {
     const data = sessionStorage.getItem('userData')
     const dataJson = JSON.parse(data)
-    console.log(dataJson, 'บอริ่ง')
+    // console.log(dataJson, 'บอริ่ง')
     const id = dataJson.user.orgId
 
-    CreatData(id, dataJson.token).then(result => {
-      this.setState({
-        items: result,
-      })
-    })
+    // CreatData(id, dataJson.token).then(result => {
+    //   this.setState({
+    //     items: result,
+    //   })
+    // })
 
     MapData(id, dataJson.token).then(result => {
+      const ansX = (result.bbox[2] + result.bbox[0]) / 2
+      const ansY = (result.bbox[3] + result.bbox[1]) / 2
       this.setState({
         geojson: result.features,
+        lat: ansY,
+        lng: ansX,
       })
     })
   }
 
   setStore = d => {
-    console.log('setstore')
-    console.log(d, 'llll')
+    // console.log('setstore')
+    // console.log(d, 'llll')
     localStorage.setItem('userUnit', JSON.stringify(d))
   }
 
@@ -110,9 +118,9 @@ class Elderly extends React.Component {
     const dataJson = JSON.parse(data)
     const id = dataJson.user.orgId
     const houseid = item.properties.id
-    console.log(item, 'kffk')
-    console.log('show drawer')
-    console.log(item.properties.id)
+    // console.log(item, 'kffk')
+    // console.log('show drawer')
+    // console.log(item.properties.id)
     this.setState({
       visible: true,
       // selectedVillage : item.properties.id
@@ -126,7 +134,8 @@ class Elderly extends React.Component {
 
     houseMap(id, dataJson.token, houseid).then(result => {
       this.setState({
-        houseaddress: result.features,
+        // houseaddress: result.features,
+        houseaddress: result,
       })
     })
   }
@@ -141,19 +150,40 @@ class Elderly extends React.Component {
   checkIdItems = e => {
     if (e.target.value === 1) {
       // eslint-disable-next-line react/no-unused-state
-      this.setState({ clickTag: 'pingpong-normal' })
+      this.setState({ clickTag: 'elder-activities-ok', submit: '', zoomLevel: 14 })
     } else if (e.target.value === 2) {
       // eslint-disable-next-line react/no-unused-state
-      this.setState({ clickTag: 'pingpong-risk' })
+      this.setState({ clickTag: 'elder-activities-mid', submit: '', zoomLevel: 14 })
     } else if (e.target.value === 3) {
       // eslint-disable-next-line react/no-unused-state
-      this.setState({ clickTag: 'pingpong-0' })
+      this.setState({ clickTag: 'elder-activities-very_hi', submit: '', zoomLevel: 14 })
+    }
+    //   else if (e.target.value === 4) {
+    //   // eslint-disable-next-line react/no-unused-state
+    //   this.setState({ clickTag: '', submit:'' })
+    // }
+  }
+
+  setCenterMap = (newlat, newlng) => {
+    // console.log(newlat, newlng,'newnwreteuii');
+    const { lat, lng } = this.state
+    if (lat !== newlat) {
+      this.setState({
+        lat: newlat,
+        zoomLevel: 20,
+      })
+    }
+    if (lng !== newlng) {
+      this.setState({
+        lng: newlng,
+        zoomLevel: 20,
+      })
     }
   }
 
   renderBaseLayerControl() {
     return (
-      <LayersControl position="topleft">
+      <LayersControl position="bottomleft">
         {this.baseMaps.map(({ name, url, attribution, type, layer, format, checked = false }) => {
           return type === 'wms' ? (
             <LayersControl.BaseLayer key={name} name={name} checked={checked}>
@@ -176,13 +206,20 @@ class Elderly extends React.Component {
   }
 
   render() {
-    const { geojson, items, lat, lng, submit, clickTag, house, visible, houseaddress } = this.state
-    const housenovillage = houseaddress.map(object => object.properties)
-    const tawat = geojson.map(object => object.geometry)
-    const aa12 = data1.map(item => item.properties)
+    const {
+      geojson,
+      lat,
+      lng,
+      submit,
+      clickTag,
+      house,
+      visible,
+      houseaddress,
+      zoomLevel,
+    } = this.state
+    const aa12 = geojson.map(item => item.properties)
     const monentFun = moment()
     const position = [lat, lng]
-    console.log(items, tawat, houseaddress, 'พอไหม')
 
     function refreshPage() {
       window.location.reload(false)
@@ -193,7 +230,7 @@ class Elderly extends React.Component {
         <AutoComplete
           style={{ width: 350, Color: '#000' }}
           onSelect={val => {
-            this.setState({ submit: val })
+            this.setState({ submit: val, clickTag: '' })
           }}
           dataSource={aa12.map(object => object.no + object.villageName)}
           defaultValue={submit}
@@ -216,8 +253,8 @@ class Elderly extends React.Component {
         <div className="air__utils__heading">
           <h5>ผู้สูงอายุ</h5>
         </div>
-        <Row>
-          <Col span={8}>
+        <div className="row">
+          <div className="col-lg-4">
             <Radio.Group onChange={this.checkIdItems}>
               <Radio value={1}>
                 ติดสังคม&nbsp;
@@ -231,49 +268,51 @@ class Elderly extends React.Component {
                 ติดเตียง&nbsp;
                 <img src="social.png" alt="" width="20" height="20" />
               </Radio>
+              {/* <Radio value={4}>
+                ทั้งหมด&nbsp;
+                <img src="home.png" alt="" width="20" height="20" />
+              </Radio> */}
             </Radio.Group>
-          </Col>
-          <Col span={8} />
-          <Col span={8}>
-            {' '}
+          </div>
+          <div className="col-lg-4" />
+          <br />
+          <div className="col-lg-4">
             <Complete />
-          </Col>
-        </Row>
+          </div>
+        </div>
         <br />
         <br />
         <Map
           style={{ height: '70vh' }}
           center={position}
-          zoom={14}
+          zoom={zoomLevel}
           // fullscreenControl
         >
           <FullscreenControl position="topleft" />
           {this.renderBaseLayerControl()}
-          {data1.map(item => {
-            console.log(item, 'iteml[fkmol')
+          {geojson.map(item => {
             let markerIcon1 = myIcon
-            if (submit) {
-              if (
-                item.properties.no + item.properties.villageName === submit &&
-                item.properties.tag[0] === 'pingpong-normal'
-              ) {
-                markerIcon1 = greenIcon
-              } else if (
-                item.properties.no + item.properties.villageName === submit &&
-                item.properties.tag[0] === 'pingpong-risk'
-              ) {
-                markerIcon1 = yelloIcon
-              } else if (
-                item.properties.no + item.properties.villageName === submit &&
-                item.properties.tag[0] === 'pingpong-0'
-              ) {
-                markerIcon1 = redIcon
-              }
-            } else if (clickTag === item.properties.tag[0] && clickTag === 'pingpong-normal') {
+            // if (submit) {
+            // if (
+            //   item.properties.no + item.properties.villageName === submit
+            // ) {
+            //   markerIcon1 = redIcon
+            if (item.properties.no + item.properties.villageName === submit) {
+              this.setCenterMap(item.geometry.coordinates[1], item.geometry.coordinates[0])
+              markerIcon1 = redIcon
+            }
+            // else if ([item.geometry.coordinates[1], item.geometry.coordinates[0]] && clickTag === '') {
+            //   markerIcon1 = BlueIcon
+            // }
+            else if (clickTag === item.properties.tags.find(obj => obj === 'elder-activities-ok')) {
               markerIcon1 = greenIcon
-            } else if (clickTag === item.properties.tag[0] && clickTag === 'pingpong-risk') {
+            } else if (
+              clickTag === item.properties.tags.find(obj => obj === 'elder-activities-mid')
+            ) {
               markerIcon1 = yelloIcon
-            } else if (clickTag === item.properties.tag[0] && clickTag === 'pingpong-0') {
+            } else if (
+              clickTag === item.properties.tags.find(obj => obj === 'elder-activities-very_hi')
+            ) {
               markerIcon1 = redIcon
             }
             return (
@@ -293,14 +332,14 @@ class Elderly extends React.Component {
                   <span>
                     <p>หมู่บ้าน:{item.properties.villageName}</p>
                     <p>บ้านเลขที่:{item.properties.no}</p>
-                    <p>tag:{item.properties.tag}</p>
+                    {/* <p>tag:{item.properties.tags}</p> */}
                   </span>
                 </Popup>
                 <Drawer
-                  title={`${housenovillage.map(obj => obj.no)} ${housenovillage.map(
-                    obj => obj.villageName,
-                  )}`}
-                  // title={`${houseaddress.no} ${houseaddress.villageName}`}
+                  // title={`${housenovillage.map(obj => obj.no)} ${housenovillage.map(
+                  //   obj => obj.villageName,
+                  // )}`}
+                  title={`${houseaddress.no} ${houseaddress.villageName}`}
                   placement="right"
                   onClose={this.onClose}
                   visible={visible}
@@ -332,6 +371,8 @@ class Elderly extends React.Component {
             )
           })}
         </Map>
+        <br />
+        <Footer />
       </div>
     )
   }

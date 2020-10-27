@@ -9,8 +9,8 @@
         ]
       },
       "properties": { 
-          "tag":[
-          "pingpong-normal"
+          "tags":[
+          "chronic"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -55,8 +55,8 @@
         ]
       },
       "properties": {
-        "tag":[
-          "pingpong-normal"
+        "tags":[
+          "chronic"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -101,8 +101,8 @@
         ]
       },
       "properties": {
-        "tag":[
-          "pingpong-risk"
+        "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -147,8 +147,8 @@
         ]
       },
       "properties": {
-        "tag":[
-          "pingpong-risk"
+        "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -193,8 +193,8 @@
         ]
       },
       "properties": {
-        "tag":[
-          "pingpong-risk"
+        "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -239,8 +239,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-risk"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -285,8 +285,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-0"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -331,8 +331,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-0"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -377,8 +377,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-1"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -423,8 +423,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-1"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -469,8 +469,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-1"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -515,8 +515,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-2"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -561,8 +561,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-2"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -607,8 +607,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-2"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -653,8 +653,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-3"
+         "tags":[
+          "chronic"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -699,8 +699,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-2"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -745,8 +745,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-3"
+         "tags":[
+          "chronic"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -791,8 +791,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-3"
+         "tags":[
+          "chronic"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -837,15 +837,15 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-black"
+         "tags":[
+          "chronic"
           ],
         "identity": {
           "type": "thailand-household-id",
           "id": "70040061787"
         },
         "people": [],
-        "haveChronic": " pingpong-1",
+        "haveChronic": " disable",
         "villageId": "5e12b238eccd5f0004eea1ee",
         "villageName": "บ้านรางห้าตำลึง",
         "orgId": "5e12b230eccd5f0004ee9902",
@@ -883,8 +883,8 @@
         ]
       },
       "properties": {
-        "tag":[
-          "pingpong-black"
+        "tags":[
+          "chronic"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -929,8 +929,8 @@
         ]
       },
       "properties": {
-        "tag":[
-          "pingpong-black"
+        "tags":[
+          "chronic"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -975,8 +975,8 @@
         ]
       },
       "properties": {
-        "tag":[
-          "pingpong-black"
+        "tags":[
+          "chronic"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -1021,8 +1021,8 @@
         ]
       },
       "properties": {
-        "tag":[
-          "pingpong-black"
+        "tags":[
+          "chronic"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -1067,8 +1067,8 @@
         ]
       },
       "properties": {
-        "tag":[
-          "pingpong-normal"
+        "tags":[
+          "chronic"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -1113,8 +1113,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-normal"
+         "tags":[
+          "chronic"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -1159,8 +1159,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-risk"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -1205,8 +1205,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-risk"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -1251,8 +1251,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-risk"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -1297,8 +1297,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-risk"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -1343,8 +1343,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-0"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -1389,8 +1389,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-1"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -1435,8 +1435,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-2"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -1481,8 +1481,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-3"
+         "tags":[
+          "chronic"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -1527,8 +1527,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-0"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -1573,8 +1573,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-1"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -1619,8 +1619,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-2"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -1665,8 +1665,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-3"
+         "tags":[
+          "chronic"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -1711,8 +1711,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-2"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -1757,8 +1757,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-0"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -1803,8 +1803,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-2"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -1849,8 +1849,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-2"
+         "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -1895,8 +1895,8 @@
         ]
       },
       "properties": {
-         "tag":[
-          "pingpong-black"
+         "tags":[
+          "chronic"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -1941,8 +1941,8 @@
         ]
       },
       "properties": {
-        "tag":[
-          "pingpong-black"
+        "tags":[
+          "chronic"
           ],
         "identity": {
           "type": "thailand-household-id",
@@ -1987,9 +1987,12 @@
         ]
       },
       "properties": {
-        "tag":[
-          "pingpong-black"
-          ],
+        "tags": [
+          "elder-activities-very_hi",
+          "elder-activities-ok",
+          "chronic",
+          "disable"
+      ],
         "identity": {
           "type": "thailand-household-id",
           "id": "70040062872"
@@ -2033,8 +2036,8 @@
         ]
       },
       "properties": {
-        "tag":[
-          "pingpong-0"
+        "tags":[
+          "disable"
           ],
         "identity": {
           "type": "thailand-household-id",

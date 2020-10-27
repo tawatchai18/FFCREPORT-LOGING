@@ -7,7 +7,6 @@ import Footer from 'components/layout/Footer'
 import { Radio, AutoComplete, Input, Icon, Drawer, Row, Col, Divider, Button } from 'antd'
 import { Map, TileLayer, Marker, WMSTileLayer, LayersControl, Popup } from 'react-leaflet'
 import L from 'leaflet'
-import 'react-leaflet-fullscreen/dist/styles.css'
 import FullscreenControl from 'react-leaflet-fullscreen'
 import {
   MapData,
@@ -17,7 +16,7 @@ import {
 } from '../../../components/system/Auth/Login/PostData'
 // import 'react-leaflet-fullscreen-control'
 
-import data1 from './data1'
+// import data1 from './data1'
 
 const myIcon = L.icon({
   iconUrl: 'blue.png',
@@ -26,8 +25,15 @@ const myIcon = L.icon({
   popupAnchor: [0, -41],
 })
 
+// const greenIcon = L.icon({
+//   iconUrl: 'icongreen.png',
+//   iconSize: [35, 40],
+//   iconAnchor: [12.5, 41],
+//   popupAnchor: [0, -41],
+// })
+
 const redIcon = L.icon({
-  iconUrl: 'iconred.png',
+  iconUrl: 'redicon.png',
   iconSize: [35, 40],
   iconAnchor: [12.5, 41],
   popupAnchor: [0, -41],
@@ -35,7 +41,7 @@ const redIcon = L.icon({
 
 const violetIcon = L.icon({
   iconUrl: 'violet.png',
-  iconSize: [35, 40],
+  iconSize: [35, 35],
   iconAnchor: [12.5, 41],
   popupAnchor: [0, -41],
 })
@@ -48,16 +54,19 @@ class Symptom extends React.Component {
     this.state = {
       geojson: [],
       house: [],
-      person: [],
+      // person: [],
       houseaddress: [],
-      lat: 13.520531624809204,
-      lng: 100.00699460506439,
+      lat: '',
+      lng: '',
+      // lat: 13.520531624809204,
+      // lng: 100.00699460506439,
       submit: '',
       clickTag: '',
       visible: false,
       selectedVillage: null,
       isLoaded: false,
       error: null,
+      zoomLevel: 14,
     }
     this.baseMaps = [
       {
@@ -100,9 +109,13 @@ class Symptom extends React.Component {
 
     MapData(id, dataJson.token).then(
       result => {
+        const ansX = (result.bbox[2] + result.bbox[0]) / 2
+        const ansY = (result.bbox[3] + result.bbox[1]) / 2
         this.setState({
           geojson: result.features,
           isLoaded: true,
+          lat: ansY,
+          lng: ansX,
         })
       },
       error => {
@@ -127,8 +140,8 @@ class Symptom extends React.Component {
   }
 
   setStore = d => {
-    console.log('setstore')
-    console.log(d, 'llll')
+    // console.log('setstore')
+    // console.log(d, 'llll')
     localStorage.setItem('userUnit', JSON.stringify(d))
   }
 
@@ -137,9 +150,9 @@ class Symptom extends React.Component {
     const dataJson = JSON.parse(data)
     const id = dataJson.user.orgId
     const houseid = item.properties.id
-    console.log(item, 'kffk')
-    console.log('show drawer')
-    console.log(item.properties.id)
+    // console.log(item, 'kffk')
+    // console.log('show drawer')
+    // console.log(item.properties.id)
     this.setState(
       {
         visible: true,
@@ -172,7 +185,7 @@ class Symptom extends React.Component {
     houseMap(id, dataJson.token, houseid).then(
       result => {
         this.setState({
-          houseaddress: result.features,
+          houseaddress: result,
           isLoaded: true,
         })
       },
@@ -195,25 +208,27 @@ class Symptom extends React.Component {
   checkIdItems = e => {
     if (e.target.value === 1) {
       // eslint-disable-next-line react/no-unused-state
-      this.setState({ clickTag: 'pingpong-normal' })
+      this.setState({ clickTag: 'chronic', submit: '', zoomLevel: 14 })
     } else if (e.target.value === 2) {
       // eslint-disable-next-line react/no-unused-state
-      this.setState({ clickTag: 'pingpong-risk' })
-    } else if (e.target.value === 3) {
-      // eslint-disable-next-line react/no-unused-state
-      this.setState({ clickTag: 'pingpong-0' })
-    } else if (e.target.value === 4) {
-      // eslint-disable-next-line react/no-unused-state
-      this.setState({ clickTag: 'pingpong-1' })
-    } else if (e.target.value === 5) {
-      // eslint-disable-next-line react/no-unused-state
-      this.setState({ clickTag: 'pingpong-2' })
-    } else if (e.target.value === 6) {
-      // eslint-disable-next-line react/no-unused-state
-      this.setState({ clickTag: 'pingpong-3' })
-    } else if (e.target.value === 7) {
-      // eslint-disable-next-line react/no-unused-state
-      this.setState({ clickTag: 'pingpong-black' })
+      this.setState({ clickTag: 'disable', submit: '', zoomLevel: 14 })
+    }
+  }
+
+  setCenterMap = (newlat, newlng) => {
+    // console.log(newlat, newlng,'newnwreteuii');
+    const { lat, lng } = this.state
+    if (lat !== newlat) {
+      this.setState({
+        lat: newlat,
+        zoomLevel: 20,
+      })
+    }
+    if (lng !== newlng) {
+      this.setState({
+        lng: newlng,
+        zoomLevel: 20,
+      })
     }
   }
 
@@ -252,20 +267,20 @@ class Symptom extends React.Component {
       error,
       clickTag,
       selectedVillage,
-      person,
+      // person,
       house,
       visible,
       houseaddress,
+      zoomLevel,
     } = this.state
-    const tawat = geojson.map(object => object.geometry)
-    const aa12 = data1.map(item => item.properties)
-    const housenovillage = houseaddress.map(object => object.properties)
+    // const aa12 = geojson.map(item => item.properties)
+    // const housenovillage = houseaddress.map(object => object.properties)
     const monentFun = moment()
     const position = [lat, lng]
-    console.log(items, tawat, selectedVillage, person)
-    console.log(houseaddress, ';l;;;kmiuygtfhgdstfygh')
-    console.log(data1, houseaddress, 'ข้อมูลdata1')
-    console.log(house, 'lllll')
+    console.log(items, selectedVillage)
+    // console.log(houseaddress, ';l;;;kmiuygtfhgdstfygh')
+    // console.log(data1, houseaddress, 'ข้อมูลdata1')
+    // console.log(house, 'lllll')
 
     function refreshPage() {
       window.location.reload(false)
@@ -276,9 +291,9 @@ class Symptom extends React.Component {
         <AutoComplete
           style={{ width: 350, Color: '#000' }}
           onSelect={val => {
-            this.setState({ submit: val })
+            this.setState({ submit: val, clickTag: '', zoomLevel: 20 })
           }}
-          dataSource={aa12.map(object => object.no + object.villageName)}
+          dataSource={geojson.map(object => object.properties.no + object.properties.villageName)}
           defaultValue={submit}
           placeholder="บ้านเลขที่ / หมู่บ้าน"
           filterOption={(inputValue, option) =>
@@ -316,46 +331,23 @@ class Symptom extends React.Component {
             <Complete />
           </div>
         </div>
-        {/* <Row>
-          <Col span={8}>
-            <Radio.Group onChange={this.checkIdItems}>
-              <Radio value={1}>ผู้ป่วยเรื้อรัง</Radio>
-              <Radio value={2}>ผู้พิการ</Radio>
-            </Radio.Group>
-          </Col>
-          <Col span={8} />
-          <Col span={8}>
-            {' '}
-            <Complete />
-          </Col>
-        </Row> */}
         <br />
         <br />
-        <Map
-          style={{ height: '70vh' }}
-          center={position}
-          zoom={14}
-          // fullscreenControl
-        >
+        <Map style={{ height: '70vh' }} center={position} zoom={zoomLevel}>
           <FullscreenControl position="topleft" />
           {this.renderBaseLayerControl()}
-          {data1.map(item => {
+          {geojson.map(item => {
             let markerIcon1 = myIcon
-            if (submit) {
-              if (
-                item.properties.no + item.properties.villageName === submit &&
-                item.properties.tag[0] === 'pingpong-normal'
-              ) {
-                markerIcon1 = redIcon
-              } else if (
-                item.properties.no + item.properties.villageName === submit &&
-                item.properties.tag[0] === 'pingpong-risk'
-              ) {
-                markerIcon1 = violetIcon
-              }
-            } else if (clickTag === item.properties.tag[0] && clickTag === 'pingpong-normal') {
+            // if (submit) {
+            // if (item.properties.no + item.properties.villageName === submit) {
+            //   markerIcon1 = redIcon
+            // }
+            if (item.properties.no + item.properties.villageName === submit) {
+              this.setCenterMap(item.geometry.coordinates[1], item.geometry.coordinates[0])
               markerIcon1 = redIcon
-            } else if (clickTag === item.properties.tag[0] && clickTag === 'pingpong-risk') {
+            } else if (clickTag === item.properties.tags.find(obj => obj === 'chronic')) {
+              markerIcon1 = redIcon
+            } else if (clickTag === item.properties.tags.find(obj => obj === 'disable')) {
               markerIcon1 = violetIcon
             }
             return (
@@ -375,15 +367,17 @@ class Symptom extends React.Component {
                   <span>
                     <p>หมู่บ้าน:{item.properties.villageName}</p>
                     <p>บ้านเลขที่:{item.properties.no}</p>
-                    <p>tag:{item.properties.tag}</p>
+                    <p>
+                      {item.geometry.coordinates[1]},{item.geometry.coordinates[0]}
+                    </p>
                   </span>
                 </Popup>
                 <div className="site-drawer-render-in-current-wrapper">
                   <Drawer
-                    // title={`${houseaddress.no} ${houseaddress.villageName}`}
-                    title={`${housenovillage.map(obj => obj.no)} ${housenovillage.map(
-                      obj => obj.villageName,
-                    )}`}
+                    title={`${houseaddress.no} ${houseaddress.villageName}`}
+                    // title={`${housenovillage.map(obj => obj.no)} ${housenovillage.map(
+                    //   obj => obj.villageName,
+                    // )}`}
                     placement="right"
                     onClose={this.onClose}
                     visible={visible}

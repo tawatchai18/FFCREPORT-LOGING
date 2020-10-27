@@ -1,10 +1,10 @@
 import React from 'react'
 import Search from './Search'
-import IssuesHistory from './IssuesHistory'
-import Status from './Status'
-import LanguageSwitcher from './LanguageSwitcher'
-import Actions from './Actions'
-import UserMenu from './UserMenu'
+// import IssuesHistory from './IssuesHistory'
+// import Status from './Status'
+// import LanguageSwitcher from './LanguageSwitcher'
+// import Actions from './Actions'
+// import UserMenu from './UserMenu'
 import style from './style.module.scss'
 
 class TopBar extends React.Component {
@@ -14,7 +14,7 @@ class TopBar extends React.Component {
         <div className="mr-md-4 mr-auto">
           <Search />
         </div>
-        <div className="mr-auto d-none d-md-block">
+        {/* <div className="mr-auto d-none d-md-block">
           <IssuesHistory />
         </div>
         <div className="mb-0 mr-4 d-xl-block d-none">
@@ -28,7 +28,7 @@ class TopBar extends React.Component {
         </div>
         <div className="">
           <UserMenu />
-        </div>
+        </div> */}
       </div>
     )
   }

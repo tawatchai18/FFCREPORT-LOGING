@@ -1,20 +1,20 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import Chart1 from 'components/widgets/Charts/1'
-import { AutoComplete, Button, Icon, Input, Tabs } from 'antd';
-import Chart2 from 'components/widgets/Charts/2';
-import Chart3 from 'components/widgets/Charts/3';
-import Chart4 from 'components/widgets/Charts/4';
+import Population from 'components/widgets/Charts/population'
+import { AutoComplete, Button, Icon, Input, Tabs } from 'antd'
+import ADL from 'components/widgets/Charts/ADL'
+import Chronicpiechart from 'components/widgets/Charts/chronicpiechart'
+import Chronicpiechartdrilldown from 'components/widgets/Charts/chronicpiechartdrilldown'
 // import Chart5 from 'components/widgets/Charts/5';
-import General2 from 'components/widgets/General/2'
-import General3 from 'components/widgets/General/3'
+import Departments from 'components/widgets/General/departments'
+import ADLsuccess from 'components/widgets/General/ADLsuccess'
 // import moment from 'moment-timezone'
 
 const { TabPane } = Tabs
 
 class DashboardAnalytics extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       dataSource: [],
       pyramid01: [],
@@ -26,7 +26,7 @@ class DashboardAnalytics extends React.Component {
       isLoaded: false,
       error: null,
     }
-    this.handleValidSubmit = this.handleValidSubmit.bind(this);
+    this.handleValidSubmit = this.handleValidSubmit.bind(this)
   }
 
   componentDidMount() {
@@ -35,98 +35,103 @@ class DashboardAnalytics extends React.Component {
       .then(res => res.json())
       .then(json => {
         this.setState({
-          dataSource: json
-        });
+          dataSource: json,
+        })
       })
 
     // กราฟ ปิรามิด
     fetch(`http://localhost:7000/report/pyramid`)
       .then(res => res.json())
-      .then(json => {
-        this.setState({
-          pyramid01: json,
-          isLoaded: true,
-        });
-      },
-        (error) => {
+      .then(
+        json => {
+          this.setState({
+            pyramid01: json,
+            isLoaded: true,
+          })
+        },
+        error => {
           this.setState({
             isLoaded: true,
-            error
-          });
-        }
+            error,
+          })
+        },
       )
 
     fetch(`http://localhost:7000/report/pyramid60up`)
       .then(res => res.json())
-      .then(json => {
-        this.setState({
-          pyramid60up: json,
-          isLoaded: true,
-        });
-      },
-        (error) => {
+      .then(
+        json => {
+          this.setState({
+            pyramid60up: json,
+            isLoaded: true,
+          })
+        },
+        error => {
           this.setState({
             isLoaded: true,
-            error
-          });
-        }
+            error,
+          })
+        },
       )
 
     // pie อัตราส่วนผู้สูงอายุ
     fetch(`http://localhost:7000/report/elderlyrat`)
       .then(res => res.json())
-      .then(json => {
-        this.setState({
-          user: json,
-          isLoaded: true
-        });
-      },
-        (error) => {
+      .then(
+        json => {
+          this.setState({
+            user: json,
+            isLoaded: true,
+          })
+        },
+        error => {
           this.setState({
             isLoaded: true,
-            error
-          });
-        }
+            error,
+          })
+        },
       )
 
     // piechart โรคเรื้อรัง
     fetch(`http://localhost:7000/report/chronic`)
       .then(res => res.json())
-      .then(json => {
-        this.setState({
-          chronic: json,
-          isLoaded: true
-        });
-      },
-        (error) => {
+      .then(
+        json => {
+          this.setState({
+            chronic: json,
+            isLoaded: true,
+          })
+        },
+        error => {
           this.setState({
             isLoaded: true,
-            error
-          });
-        }
+            error,
+          })
+        },
       )
 
     // piechronicdilldown โรคเรื้อรัง
     fetch(`http://localhost:7000/report/chronicdilldown`)
       .then(res => res.json())
-      .then(json => {
-        this.setState({
-          chronicdilldown: json,
-          isLoaded: true
-        });
-      },
-        (error) => {
+      .then(
+        json => {
+          this.setState({
+            chronicdilldown: json,
+            isLoaded: true,
+          })
+        },
+        error => {
           this.setState({
             isLoaded: true,
-            error
-          });
-        }
+            error,
+          })
+        },
       )
   }
 
   handleValidSubmit(value) {
-    const { dataSource } = this.state;
-    const organization = dataSource.find((item) => {
+    const { dataSource } = this.state
+    const organization = dataSource.find(item => {
       return item.name === value
     })
     if (organization !== undefined) {
@@ -137,8 +142,8 @@ class DashboardAnalytics extends React.Component {
         .then(json => {
           this.setState({
             pyramid01: json,
-            hospital: value
-          });
+            hospital: value,
+          })
         })
 
       fetch(`http://localhost:7000/report/pyramid60up/${idOption}`)
@@ -146,8 +151,8 @@ class DashboardAnalytics extends React.Component {
         .then(json => {
           this.setState({
             pyramid60up: json,
-            hospital: value
-          });
+            hospital: value,
+          })
         })
 
       fetch(`http://localhost:7000/report/elderlyrat/${idOption}`)
@@ -155,8 +160,8 @@ class DashboardAnalytics extends React.Component {
         .then(json => {
           this.setState({
             user: json,
-            hospital: value
-          });
+            hospital: value,
+          })
         })
 
       fetch(`http://localhost:7000/report/chronic/${idOption}`)
@@ -164,8 +169,8 @@ class DashboardAnalytics extends React.Component {
         .then(json => {
           this.setState({
             chronic: json,
-            hospital: value
-          });
+            hospital: value,
+          })
         })
 
       fetch(`http://localhost:7000/report/chronicdilldown/${idOption}`)
@@ -173,17 +178,27 @@ class DashboardAnalytics extends React.Component {
         .then(json => {
           this.setState({
             chronicdilldown: json,
-            hospital: value
-          });
+            hospital: value,
+          })
         })
     }
   }
 
   render() {
-    const { dataSource, chronic, pyramid01, pyramid60up, user, hospital, isLoaded, chronicdilldown, error } = this.state;
-    const name = dataSource.map(object => object.name);
+    const {
+      dataSource,
+      chronic,
+      pyramid01,
+      pyramid60up,
+      user,
+      hospital,
+      isLoaded,
+      chronicdilldown,
+      error,
+    } = this.state
+    const name = dataSource.map(object => object.name)
     const oo = name.length
-    const submit = this.handleValidSubmit;
+    const submit = this.handleValidSubmit
 
     function Complete() {
       return (
@@ -197,37 +212,44 @@ class DashboardAnalytics extends React.Component {
             option.props.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
           }
         >
-          <Input suffix={<Icon type="search" className="certain-category-icon" />} />
+          <Input suffix={<Icon type="search" className="certain-category-icon" />} allowClear />
         </AutoComplete>
-      );
+      )
     }
 
     function refreshPage() {
-      window.location.reload();
-
+      window.location.reload()
     }
     if (error) {
-      return <div>Error: {error.message}</div>;
-    } if (!isLoaded) {
-      return <div>Loading...</div>;
+      return <div>Error: {error.message}</div>
+    }
+    if (!isLoaded) {
+      return <div>Loading...</div>
     }
     return (
       <div>
         {isLoaded}
         <Helmet title="Family Folder Collector" />
         <div>
-          <Complete />&nbsp; &nbsp; &nbsp;
-          <Button type="button" onClick={refreshPage}> <span>หน่วยงานทั้งหมด</span> </Button>
+          <Complete />
+          &nbsp; &nbsp; &nbsp;
+          <Button type="button" onClick={refreshPage}>
+            {' '}
+            <span>หน่วยงานทั้งหมด</span>{' '}
+          </Button>
         </div>
         <br />
         <p style={{ color: '#ff8080' }}>*** รายงานข้อมูลชุมชน จะปรับปรุงทุกๆ 6 ชั่วโมง ***</p>
-        {/* <Chart4 length={oo} /> */}
-        {/* <br /> */}
         <div className="row">
           <div className="col-xl-12">
             <div className="card">
               <div className="card-body">
-                <Chart1 submit={submit} pyramid01={pyramid01} namehospital={hospital} length={oo} />
+                <Population
+                  submit={submit}
+                  pyramid01={pyramid01}
+                  namehospital={hospital}
+                  length={oo}
+                />
               </div>
             </div>
           </div>
@@ -236,14 +258,19 @@ class DashboardAnalytics extends React.Component {
           <div className="col-xl-4 col-lg-6">
             <div className="card">
               <div className="card-body">
-                <General2 length={oo} />
+                <Departments length={oo} />
               </div>
             </div>
           </div>
           <div className="col-xl-4 col-lg-6">
             <div className="card">
               <div className="card-body">
-                <General3 pyramid60up={pyramid60up} user={user} isLoaded={isLoaded} error={error} />
+                <ADLsuccess
+                  pyramid60up={pyramid60up}
+                  user={user}
+                  isLoaded={isLoaded}
+                  error={error}
+                />
               </div>
             </div>
           </div>
@@ -254,10 +281,14 @@ class DashboardAnalytics extends React.Component {
               <div className="card-body">
                 <Tabs defaultActiveKey="1" className="air-tabs-bold">
                   <TabPane tab="จำนวนผู้ป่วยโรคเรื้อรังแยกตามกลุ่มโรค" key="1">
-                    <Chart4 namehospital={hospital} chronicdilldown={chronicdilldown} submit={submit} />
+                    <Chronicpiechartdrilldown
+                      namehospital={hospital}
+                      chronicdilldown={chronicdilldown}
+                      submit={submit}
+                    />
                   </TabPane>
                   <TabPane tab="จำนวนผู้ป่วยโรคเรื้อรังแยกตามรายโรค" key="2">
-                    <Chart3 namehospital={hospital} chronic={chronic} submit={submit} />
+                    <Chronicpiechart namehospital={hospital} chronic={chronic} submit={submit} />
                   </TabPane>
                 </Tabs>
               </div>
@@ -265,30 +296,14 @@ class DashboardAnalytics extends React.Component {
           </div>
         </div>
         <div className="row">
-          {/* <div className="col-xl-6">
-            <div className="card">
-              <div className="card-body">
-                <Chart3 submit={submit} chronic={chronic} namehospital={hospital} />
-              </div>
-            </div>
-          </div> */}
           <div className="col-xl-6">
             <div className="card">
               <div className="card-body">
-                <Chart2 submit={submit} user={user} namehospital={hospital} />
+                <ADL submit={submit} user={user} namehospital={hospital} />
               </div>
             </div>
           </div>
         </div>
-        {/* <div className="row">
-          <div className="col-xl-6">
-            <div className="card">
-              <div className="card-body">
-                <Chart5 />
-              </div>
-            </div>
-          </div>
-        </div> */}
       </div>
     )
   }

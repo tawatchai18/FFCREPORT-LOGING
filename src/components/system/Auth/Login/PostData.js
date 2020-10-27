@@ -1,8 +1,8 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Base64 } from 'js-base64'
 
-const API = 'https://ffcmaekawtom.herokuapp.com/v1'
-// const API = 'https://api-test.ffc.in.th/v1'
+// const API = 'https://ffcmaekawtom.herokuapp.com/v1'
+const API = 'https://api-test.ffc.in.th/v1'
 
 export function PostData(type, userData, id) {
   return new Promise((resolve, reject) => {
@@ -57,7 +57,6 @@ export function Data() {
 }
 
 export function MapData(id, token) {
-  // console.log(id, 'โทเคน');
   return new Promise((resolve, reject) => {
     fetch(`${API}/org/${id}/house`, {
       method: 'GET',
@@ -78,7 +77,6 @@ export function MapData(id, token) {
 }
 
 export function UserDatamap(id, token, houseid) {
-  console.log(houseid, 'โทเคน')
   return new Promise((resolve, reject) => {
     fetch(`${API}/org/${id}/house/${houseid}/resident`, {
       method: 'GET',
@@ -98,7 +96,6 @@ export function UserDatamap(id, token, houseid) {
 }
 
 export function houseMap(id, token, houseid) {
-  console.log(houseid, 'houseMap')
   return new Promise((resolve, reject) => {
     fetch(`${API}/org/${id}/house/${houseid}`, {
       method: 'GET',
@@ -119,7 +116,6 @@ export function houseMap(id, token, houseid) {
 }
 
 export function editemarker(id, token, houseid, idhouse, dragMarkerLatlng) {
-  console.log(houseid, dragMarkerLatlng, 'houseMap')
   return new Promise((resolve, reject) => {
     fetch(`${API}/org/${id}/house/${houseid}`, {
       method: 'PUT',
@@ -145,20 +141,52 @@ export function editemarker(id, token, houseid, idhouse, dragMarkerLatlng) {
         Authorization: `Bearer ${token}`,
       }),
     })
-      // .then(response => {
-      //   return response.json()
-      // }).then(json => {
-      // console.log(json)
-      // this.setState({
-      //   user:json
-      // })
       .then(response => response.json())
       .then(res => {
         console.log(res, 'editemarker')
         resolve(res)
-        // this.setState({
-        //   user:res
-        // })
+      })
+      .catch(error => {
+        reject(error)
+      })
+  })
+}
+
+export function editemarkersubmit(id, token, newid, edithouse, geojson, newlatlng) {
+  console.log(newid, 'id')
+  // console.log(newlatlng,'coordinest');
+  // console.log(edithouse,'poporties');
+  // console.log(edithouse.id,'idpop');
+  // console.log(geojson,'poppo');
+  return new Promise((resolve, reject) => {
+    fetch(`${API}/org/${id}/house/${edithouse}`, {
+      method: 'PUT',
+      body: JSON.stringify({
+        identity: geojson.identity,
+        people: geojson.people,
+        haveChronic: geojson.haveChronic,
+        no: geojson.no,
+        villageName: geojson.villageName,
+        villageId: geojson.villageId,
+        location: {
+          type: 'Point',
+          coordinates: newlatlng,
+        },
+        link: geojson.link,
+        imagesUrl: geojson.imagesUrl,
+        id: geojson.id,
+        type: geojson.type,
+        timestamp: geojson.timestamp,
+      }),
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      }),
+    })
+      .then(response => response.json())
+      .then(res => {
+        console.log(res, 'editemarker')
+        resolve(res)
       })
       .catch(error => {
         reject(error)
@@ -167,7 +195,7 @@ export function editemarker(id, token, houseid, idhouse, dragMarkerLatlng) {
 }
 
 export function haveLocat(id, token, houseid) {
-  console.log(houseid, 'houseMap')
+  console.log(houseid)
   return new Promise((resolve, reject) => {
     fetch(`${API}/org/${id}/house?haveLocation=false`, {
       method: 'GET',
@@ -178,7 +206,6 @@ export function haveLocat(id, token, houseid) {
     })
       .then(response => response.json())
       .then(res => {
-        console.log(res, ';;;;;;;')
         resolve(res)
       })
       .catch(error => {
@@ -207,13 +234,11 @@ export function userDetail(id, token, personuser) {
 }
 
 export function CreatData(id, token) {
-  console.log(token, 'ppppl;k')
   return new Promise((resolve, reject) => {
     fetch(`${API}/org/${id}/user`, {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json',
-        // 'Authorization': 'Bearer 0lI41NtRAJTIgjjYHnGZHoyUKH92QAy9AW9z0lBhJJSrBA9QYAw4xT0sC2BxMRhd',
         Authorization: `Bearer ${token}`,
       }),
     })
@@ -228,15 +253,12 @@ export function CreatData(id, token) {
 }
 
 export function CreatUser(id, token, userData) {
-  console.log(id, 'opopopop')
-  console.log(token, '===12')
   return new Promise((resolve, reject) => {
     fetch(`${API}/org/${id}/user`, {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
-        // "Authorization": 'Bearer 0lI41NtRAJTIgjjYHnGZHoyUKH92QAy9AW9z0lBhJJSrBA9QYAw4xT0sC2BxMRhd',
       }),
       body: JSON.stringify(userData),
     })

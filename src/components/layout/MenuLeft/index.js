@@ -199,6 +199,7 @@ class MenuLeft extends React.Component {
       return key
     })
     if (activeItem && activeSubmenu) {
+      // console.log(activeItem,'คีย์');
       this.setState({
         activeItem: activeItem.key,
         activeSubmenu: activeSubmenu.key,
@@ -298,7 +299,6 @@ class MenuLeft extends React.Component {
     const sessionValue = sessionStorage.getItem('userData')
     // console.log(sessionValue,'How Toooo......');
     const bon = JSON.parse(sessionValue)
-    // console.log(bon.user.roles[0],'สวัสดีวันจันท');
 
     const items = this.generateMenuItems()
     return (
@@ -405,6 +405,17 @@ class MenuLeft extends React.Component {
                     </a>
                   </li> */}
                   {items}
+                  {/* {activeItem === "dashboardEditmark"  && (
+                    <Input
+                      suffix={<Icon type="search" className="certain-category-icon" />}
+                      allowClear
+                    />
+                  )}
+                  <br />
+                  {activeItem === "dashboardEditmark" && (
+                    <MenuEdite />
+                    )
+                  } */}
                 </ul>
               </div>
             </Scrollbars>

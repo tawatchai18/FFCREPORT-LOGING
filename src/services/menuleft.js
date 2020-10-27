@@ -51,12 +51,12 @@ export default async function getMenuData() {
     //   key: 'system',
     //   icon: 'fe fe-user',
     //   children: [
-    {
-      title: 'ปิงปองจราจร 7 สี',
-      key: 'dashboardCrypto',
-      icon: 'fa fa-users',
-      url: '/dashboard/crypto',
-    },
+    // {
+    //   title: 'ปิงปองจราจร 7 สี',
+    //   key: 'dashboardCrypto',
+    //   icon: 'fa fa-users',
+    //   url: '/dashboard/crypto',
+    // },
     {
       title: 'ผู้สูงอายุ',
       key: 'dashboardElderly',
@@ -69,11 +69,17 @@ export default async function getMenuData() {
       icon: 'fa fa-wheelchair',
       url: '/dashboard/symptom',
     },
+    // {
+    //   title: 'เพิ่ม / แก้ไข',
+    //   key: 'dashboardEditmark',
+    //   icon: 'fa fa-cog',
+    //   url: '/dashboard/Editmark',
+    // },
     {
-      title: 'เพิ่ม / แก้ไข',
-      key: 'dashboardEditmark',
+      title: 'เพิ่ม/อัพเดต',
+      key: 'editeupdatemarker',
       icon: 'fa fa-cog',
-      url: '/dashboard/Editmark',
+      url: '/system/editeupdatemarker',
     },
     // {
     //   // title: 'UserDetail',

@@ -49,6 +49,11 @@ const routes = [
     Component: loadable(() => import('pages/dashboard/userdetail')),
     exact: true,
   },
+  {
+    path: '/system/editeupdatemarker',
+    Component: loadable(() => import('pages/system/editeupdatemarker')),
+    exact: true,
+  },
   // {
   //   path: '/dashboard/pingpong',
   //   Component: loadable(() => import('pages/dashboard/pingpong')),

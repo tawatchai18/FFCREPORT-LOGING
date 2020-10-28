@@ -284,22 +284,20 @@ class DashboardAnalytics extends React.Component {
           </div>
         </div>
         <div className="row">
-          <div className="col-xl-12">
+          <div className="col-xl-12 col-lg-12">
             <div className="card">
-              <div className="card-body">
-                <Tabs defaultActiveKey="1" className="air-tabs-bold">
-                  <TabPane tab="จำนวนผู้ป่วยโรคเรื้อรังแยกตามกลุ่มโรค" key="1">
-                    <Chronicpiechartdrilldown
-                      namehospital={hospital}
-                      chronicdilldown={chronicdilldown}
-                      submit={submit}
-                    />
-                  </TabPane>
-                  <TabPane tab="จำนวนผู้ป่วยโรคเรื้อรังแยกตามรายโรค" key="2">
-                    <Chronicpiechart namehospital={hospital} chronic={chronic} submit={submit} />
-                  </TabPane>
-                </Tabs>
-              </div>
+              <Tabs className="air-tabs-bordered pt-2" defaultActiveKey="1">
+                <TabPane tab="จำนวนผู้ป่วยโรคเรื้อรังแยกตามกลุ่มโรค" key="1">
+                  <Chronicpiechartdrilldown
+                    namehospital={hospital}
+                    chronicdilldown={chronicdilldown}
+                    submit={submit}
+                  />
+                </TabPane>
+                <TabPane tab="จำนวนผู้ป่วยโรคเรื้อรังแยกตามรายโรค" key="2">
+                  <Chronicpiechart namehospital={hospital} chronic={chronic} submit={submit} />
+                </TabPane>
+              </Tabs>
             </div>
           </div>
         </div>

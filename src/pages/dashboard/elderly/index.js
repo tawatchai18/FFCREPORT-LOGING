@@ -134,8 +134,8 @@ class Elderly extends React.Component {
 
     houseMap(id, dataJson.token, houseid).then(result => {
       this.setState({
-        // houseaddress: result.features,
-        houseaddress: result,
+        houseaddress: result.features,
+        // houseaddress: result,
       })
     })
   }
@@ -220,6 +220,8 @@ class Elderly extends React.Component {
     const aa12 = geojson.map(item => item.properties)
     const monentFun = moment()
     const position = [lat, lng]
+    const titleno = houseaddress.map(it => it.properties.no)
+    const titlevillageName = houseaddress.map(it => it.properties.villageName)
 
     function refreshPage() {
       window.location.reload(false)
@@ -339,7 +341,8 @@ class Elderly extends React.Component {
                   // title={`${housenovillage.map(obj => obj.no)} ${housenovillage.map(
                   //   obj => obj.villageName,
                   // )}`}
-                  title={`${houseaddress.no} ${houseaddress.villageName}`}
+                  // title={`${houseaddress.no} ${houseaddress.villageName}`}
+                  title={`${titleno} ${titlevillageName}`}
                   placement="right"
                   onClose={this.onClose}
                   visible={visible}

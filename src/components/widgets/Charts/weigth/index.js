@@ -30,7 +30,8 @@ class Weigth extends React.Component {
 
     const weigths = items.filter(item => item.weight !== undefined)
     const heights1 = items.filter(item => item.height !== undefined)
-    const times = items.map(item => moment(item.endTime).format('L'))
+    // const times = items.map(item => moment(item.endTime).format('L'))
+    const times = items.map(item => moment(item.endTime).format('DD MMMM YYYY HH:mm:ss'))
 
     let weights
     if (Array.isArray(weigths)) {

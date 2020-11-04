@@ -23,11 +23,14 @@ const myIcon = L.icon({
   popupAnchor: [0, -41],
 })
 
-const redIcon = L.icon({
-  iconUrl: 'redicon.png',
-  iconSize: [35, 40],
-  iconAnchor: [12.5, 41],
-  popupAnchor: [0, -41],
+const redIcon = new L.Icon({
+  iconUrl:
+    'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
 })
 
 class ForgotPassword extends React.Component {
@@ -37,8 +40,6 @@ class ForgotPassword extends React.Component {
       geojson: [],
       person: [],
       haveLocation: [],
-      // lat: 13.52,
-      // lng: 100,
       lat: '',
       lng: '',
       submit: '',
@@ -56,8 +57,6 @@ class ForgotPassword extends React.Component {
       newid: '',
       edithouse: [],
       newlatlng: [],
-      // novsvillageName:[],
-      // namevillagevsnoedite:[],
       hover: false,
       functionupdate: false,
       functionedite: false,

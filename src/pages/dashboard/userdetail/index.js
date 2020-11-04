@@ -345,7 +345,7 @@ class UserDetail extends React.Component {
                   <div className="card air__utils__cardMarked air__utils__cardMarked--primary">
                     <div className="card-header card-header-flex">
                       <div className="d-flex flex-column justify-content-center mr-auto">
-                        <h5 className="mb-0">อัตราการหายใจ และ ค่าน้ำตาลในเลือด</h5>
+                        <h5 className="mb-0">น้ำหนัก ส่วนสูง</h5>
                       </div>
                     </div>
                     <div className="card-body">

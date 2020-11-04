@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 import Footer from 'components/layout/Footer'
-import { Radio, AutoComplete, Input, Icon, Row, Col, Drawer, Divider, Button } from 'antd'
+import { Radio, AutoComplete, Input, Icon, Drawer, Button } from 'antd'
 import { Map, TileLayer, Marker, Popup, WMSTileLayer, LayersControl } from 'react-leaflet'
 import L from 'leaflet'
 import FullscreenControl from 'react-leaflet-fullscreen'
@@ -14,39 +14,44 @@ import {
   houseMap,
 } from '../../../components/system/Auth/Login/PostData'
 
-const myIcon = L.icon({
-  iconUrl: 'blue.png',
+const myIcon = new L.Icon({
+  iconUrl:
+    'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
   iconSize: [0, 0],
-  iconAnchor: [12.5, 41],
-  popupAnchor: [0, -41],
+  iconAnchor: [0, 0],
+  popupAnchor: [0, 0],
+  shadowSize: [0, 0],
 })
 
-// const BlueIcon = L.icon({
-//   iconUrl: 'blue.png',
-//   iconSize: [25, 30],
-//   iconAnchor: [12.5, 41],
-//   popupAnchor: [0, -41],
-// })
-
-const greenIcon = L.icon({
-  iconUrl: 'icongreen.png',
-  iconSize: [35, 40],
-  iconAnchor: [12.5, 41],
-  popupAnchor: [0, -41],
+const greenIcon = new L.Icon({
+  iconUrl:
+    'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
 })
 
-const yelloIcon = L.icon({
-  iconUrl: 'yello.png',
-  iconSize: [35, 40],
-  iconAnchor: [12.5, 41],
-  popupAnchor: [0, -41],
+const yelloIcon = new L.Icon({
+  iconUrl:
+    'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
 })
 
-const redIcon = L.icon({
-  iconUrl: 'redicon.png',
-  iconSize: [35, 40],
-  iconAnchor: [12.5, 41],
-  popupAnchor: [0, -41],
+const redIcon = new L.Icon({
+  iconUrl:
+    'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
 })
 
 class Elderly extends React.Component {
@@ -218,6 +223,7 @@ class Elderly extends React.Component {
       zoomLevel,
     } = this.state
     const aa12 = geojson.map(item => item.properties)
+    console.log(aa12, 'loglog')
     const monentFun = moment()
     const position = [lat, lng]
     const titleno = houseaddress.map(it => it.properties.no)
@@ -294,19 +300,12 @@ class Elderly extends React.Component {
           {this.renderBaseLayerControl()}
           {geojson.map(item => {
             let markerIcon1 = myIcon
-            // if (submit) {
-            // if (
-            //   item.properties.no + item.properties.villageName === submit
-            // ) {
-            //   markerIcon1 = redIcon
             if (item.properties.no + item.properties.villageName === submit) {
               this.setCenterMap(item.geometry.coordinates[1], item.geometry.coordinates[0])
               markerIcon1 = redIcon
-            }
-            // else if ([item.geometry.coordinates[1], item.geometry.coordinates[0]] && clickTag === '') {
-            //   markerIcon1 = BlueIcon
-            // }
-            else if (clickTag === item.properties.tags.find(obj => obj === 'elder-activities-ok')) {
+            } else if (
+              clickTag === item.properties.tags.find(obj => obj === 'elder-activities-ok')
+            ) {
               markerIcon1 = greenIcon
             } else if (
               clickTag === item.properties.tags.find(obj => obj === 'elder-activities-mid')
@@ -349,26 +348,25 @@ class Elderly extends React.Component {
                   getContainer={false}
                   style={{ position: 'absolute', overflow: 'hidden', width: 240 }}
                 >
-                  <span>
-                    {house.map(d => {
-                      return (
-                        <div>
-                          <Row>
-                            <Col>
-                              <Link to="/dashboard/userdetail">
-                                <Button onClick={() => this.setStore(d)}>
-                                  {d.firstname}&nbsp;{d.lastname}&nbsp;อายุ&nbsp;
-                                  {monentFun.diff(d.birthDate, 'years')}&nbsp;ปี
-                                </Button>
-                              </Link>
-                              {/* <Link to="/dashboard/userdetail">{d.firstname}&nbsp;{d.lastname}&nbsp;อายุ&nbsp;{monentFun.diff(d.birthDate, 'years')}&nbsp;ปี</Link> */}
-                            </Col>
-                          </Row>
-                          <Divider />
-                        </div>
+                  {house.map(d => {
+                    let aa123
+                    const apex = monentFun.diff(d.birthDate, 'years')
+                    if (apex >= 60) {
+                      aa123 = (
+                        <Button onClick={() => this.setStore(d)} style={{ width: 220 }}>
+                          {d.firstname}&nbsp;{d.lastname}&nbsp;อายุ&nbsp;
+                          {apex}&nbsp;ปี
+                        </Button>
                       )
-                    })}
-                  </span>
+                    } else {
+                      aa123 = null
+                    }
+                    return (
+                      <div>
+                        <Link to="/dashboard/userdetail">{aa123}</Link>
+                      </div>
+                    )
+                  })}
                 </Drawer>
               </Marker>
             )

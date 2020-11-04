@@ -34,17 +34,19 @@ class Oxygen extends React.Component {
     // const weigths = items.filter(item => item.weight !== undefined)
 
     const bloodPressures = items.filter(item => item.bloodPressure !== undefined)
-    const times = bloodPressures.map(item => moment(item.endTime).format('L'))
+    // const times = bloodPressures.map(item => moment(item.endTime).format('L'))
+    const times = bloodPressures.map(item => moment(item.endTime).format('DD MMMM YYYY HH:mm:ss'))
 
-    // console.log(bloodPressures.map(it => it.sugarLab),'มมมมม');
     let SugarLabs
     if (Array.isArray(bloodPressures)) {
       SugarLabs = bloodPressures.map(item => {
         if (item.sugarLab) {
           return item.sugarLab
         }
-        return 0
+        return null
       })
+    } else {
+      respiratoryRates = Array.from([null])
     }
     // console.log(SugarLabs,'test sugar');
 
@@ -54,8 +56,10 @@ class Oxygen extends React.Component {
         if (item.respiratoryRate) {
           return item.respiratoryRate
         }
-        return 0
+        return null
       })
+    } else {
+      respiratoryRates = Array.from([null])
     }
 
     const options = {

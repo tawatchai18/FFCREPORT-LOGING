@@ -30,7 +30,8 @@ class Heartrate extends React.Component {
     }
 
     const bloodPressures = items.filter(item => item.bloodPressure !== undefined)
-    const times = bloodPressures.map(item => moment(item.endTime).format('L'))
+    // const times = bloodPressures.map(item => moment(item.endTime).format('L'))
+    const times = bloodPressures.map(item => moment(item.endTime).format('DD MMMM YYYY HH:mm:ss'))
 
     let pulseRate1
     if (Array.isArray(bloodPressures)) {

@@ -18,32 +18,34 @@ import {
 
 // import data1 from './data1'
 
-const myIcon = L.icon({
-  iconUrl: 'blue.png',
+const myIcon = new L.Icon({
+  iconUrl:
+    'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
   iconSize: [0, 0],
-  iconAnchor: [12.5, 41],
-  popupAnchor: [0, -41],
+  iconAnchor: [0, 0],
+  popupAnchor: [0, 0],
+  shadowSize: [0, 0],
 })
 
-// const greenIcon = L.icon({
-//   iconUrl: 'icongreen.png',
-//   iconSize: [35, 40],
-//   iconAnchor: [12.5, 41],
-//   popupAnchor: [0, -41],
-// })
-
-const redIcon = L.icon({
-  iconUrl: 'redicon.png',
-  iconSize: [35, 40],
-  iconAnchor: [12.5, 41],
-  popupAnchor: [0, -41],
+const redIcon = new L.Icon({
+  iconUrl:
+    'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
 })
 
-const violetIcon = L.icon({
-  iconUrl: 'violet.png',
-  iconSize: [35, 35],
-  iconAnchor: [12.5, 41],
-  popupAnchor: [0, -41],
+const violetIcon = new L.Icon({
+  iconUrl:
+    'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
 })
 
 const mapStateToProps = ({ settings }) => ({ settings })
@@ -150,9 +152,6 @@ class Symptom extends React.Component {
     const dataJson = JSON.parse(data)
     const id = dataJson.user.orgId
     const houseid = item.properties.id
-    // console.log(item, 'kffk')
-    // console.log('show drawer')
-    // console.log(item.properties.id)
     this.setState(
       {
         visible: true,

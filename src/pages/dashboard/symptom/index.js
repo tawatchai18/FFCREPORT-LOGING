@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import moment from 'moment'
 import Footer from 'components/layout/Footer'
-import { Radio, AutoComplete, Input, Icon, Drawer, Row, Col, Divider, Button } from 'antd'
+import { Radio, AutoComplete, Input, Icon, Drawer, Button } from 'antd'
 import { Map, TileLayer, Marker, WMSTileLayer, LayersControl, Popup } from 'react-leaflet'
 import L from 'leaflet'
 import FullscreenControl from 'react-leaflet-fullscreen'
@@ -385,7 +385,26 @@ class Symptom extends React.Component {
                     getContainer={false}
                     style={{ position: 'absolute', overflow: 'hidden', width: 240 }}
                   >
-                    <span>
+                    {house.map(d => {
+                      let aa123
+                      const apex = monentFun.diff(d.birthDate, 'years')
+                      if (apex >= 1) {
+                        aa123 = (
+                          <Button onClick={() => this.setStore(d)} style={{ width: 220 }}>
+                            {d.firstname}&nbsp;{d.lastname}&nbsp;อายุ&nbsp;
+                            {apex}&nbsp;ปี
+                          </Button>
+                        )
+                      } else {
+                        aa123 = null
+                      }
+                      return (
+                        <div>
+                          <Link to="/dashboard/userdetail">{aa123}</Link>
+                        </div>
+                      )
+                    })}
+                    {/* <span>
                       {house.map(d => {
                         return (
                           <div className="site-drawer-render-in-current-wrapper">
@@ -403,7 +422,7 @@ class Symptom extends React.Component {
                           </div>
                         )
                       })}
-                    </span>
+                    </span> */}
                   </Drawer>
                 </div>
               </Marker>

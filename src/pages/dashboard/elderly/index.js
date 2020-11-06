@@ -28,7 +28,7 @@ const greenIcon = new L.Icon({
   iconUrl:
     'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-  iconSize: [25, 41],
+  iconSize: [20, 30],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
   shadowSize: [41, 41],
@@ -38,7 +38,7 @@ const yelloIcon = new L.Icon({
   iconUrl:
     'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png',
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-  iconSize: [25, 41],
+  iconSize: [20, 30],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
   shadowSize: [41, 41],
@@ -48,7 +48,7 @@ const redIcon = new L.Icon({
   iconUrl:
     'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-  iconSize: [25, 41],
+  iconSize: [20, 30],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
   shadowSize: [41, 41],
@@ -333,7 +333,7 @@ class Elderly extends React.Component {
                   <span>
                     <p>หมู่บ้าน:{item.properties.villageName}</p>
                     <p>บ้านเลขที่:{item.properties.no}</p>
-                    {/* <p>tag:{item.properties.tags}</p> */}
+                    <p>tag:{item.properties.tags}</p>
                   </span>
                 </Popup>
                 <Drawer
@@ -353,9 +353,9 @@ class Elderly extends React.Component {
                     const apex = monentFun.diff(d.birthDate, 'years')
                     if (apex >= 60) {
                       aa123 = (
-                        <Button onClick={() => this.setStore(d)} style={{ width: 220 }}>
-                          {d.firstname}&nbsp;{d.lastname}&nbsp;อายุ&nbsp;
-                          {apex}&nbsp;ปี
+                        <Button onClick={() => this.setStore(d)} style={{ width: 220, height: 50 }}>
+                          {d.firstname}&nbsp;{d.lastname}&nbsp;
+                          <p>อายุ&nbsp;{apex}&nbsp;ปี</p>
                         </Button>
                       )
                     } else {

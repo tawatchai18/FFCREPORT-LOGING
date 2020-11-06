@@ -65,6 +65,8 @@ class UserDetail extends React.Component {
     const health = _.last(healthcareservice)
     const healthdetail = Object(health)
     const sessionValue = localStorage.getItem('userUnit')
+    console.log(sessionValue, 'value')
+    console.log(healthcareservice, 'healthcareservice')
 
     let user
     if (!user) {

@@ -76,7 +76,7 @@ export default async function getMenuData() {
     //   url: '/dashboard/Editmark',
     // },
     {
-      title: 'เพิ่ม/อัพเดต',
+      title: 'เพิ่ม/แก้ไข',
       key: 'editeupdatemarker',
       icon: 'fa fa-cog',
       url: '/system/editeupdatemarker',

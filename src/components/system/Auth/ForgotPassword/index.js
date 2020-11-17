@@ -491,7 +491,7 @@ class ForgotPassword extends React.Component {
           </div>
         </div>
         {/* <TopBer /> */}
-        <Helmet title="Dashboard: Updatemaeker" />
+        <Helmet title="เพิ่ม/แก้ไข" />
         <div className="air__utils__heading" style={{ marginLeft: 150 }}>
           <h5>เพิ่ม / แก้ไข พิกัด</h5>
         </div>

@@ -51,7 +51,7 @@ class BloodPressure extends React.Component {
     }
 
     const times = bloodPressures.map(item => moment(item.endTime).format('DD MMMM YYYY HH:mm:ss'))
-    console.log(diastolic1, systolic1, times, 'log this')
+    // console.log(diastolic1, systolic1, times, 'log this')
     const options = {
       yaxis: [
         {

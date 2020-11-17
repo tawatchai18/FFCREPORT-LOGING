@@ -65,8 +65,8 @@ class UserDetail extends React.Component {
     const health = _.last(healthcareservice)
     const healthdetail = Object(health)
     const sessionValue = localStorage.getItem('userUnit')
-    console.log(sessionValue, 'value')
-    console.log(healthcareservice, 'healthcareservice')
+    // console.log(sessionValue, 'value')
+    // console.log(healthcareservice, 'healthcareservice')
 
     let user
     if (!user) {
@@ -82,6 +82,7 @@ class UserDetail extends React.Component {
       realationships1 = <div>Loading...</div>
     }
     const listItems = realationships1.map(item => {
+      // console.log(item,'listitem12');
       let relates
       if (item.relate === 'Father') {
         relates = 'พ่อ'
@@ -97,7 +98,9 @@ class UserDetail extends React.Component {
           <div className="card-body">
             <div className="d-flex flex-wrap align-items-center">
               <Col span={4}>
-                <img src="resources/images/content/hands.png" alt="Hands" />
+                <div className="air__utils__avatar air__utils__avatar--size64 mb-3">
+                  {/* {healthdetail.photosUrl} */}
+                </div>
               </Col>
               <div className="mr-auto">
                 <p>ชื่อ: {item.name}</p>

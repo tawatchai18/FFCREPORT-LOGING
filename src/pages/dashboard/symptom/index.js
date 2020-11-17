@@ -183,7 +183,7 @@ class Symptom extends React.Component {
 
     houseMap(id, dataJson.token, houseid).then(
       result => {
-        console.log(result, 'address')
+        // console.log(result, 'address')
         this.setState({
           houseaddress: result.features,
           isLoaded: true,
@@ -315,7 +315,7 @@ class Symptom extends React.Component {
     }
     return (
       <div>
-        <Helmet title="Dashboard: Crypto" />
+        <Helmet title="สุขภาวะ/อาการ" />
         <div className="air__utils__heading">
           <h5>สุขภาวะ/อาการ</h5>
         </div>

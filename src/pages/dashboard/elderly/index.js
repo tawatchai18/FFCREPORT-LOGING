@@ -223,7 +223,7 @@ class Elderly extends React.Component {
       zoomLevel,
     } = this.state
     const aa12 = geojson.map(item => item.properties)
-    console.log(aa12, 'loglog')
+    // console.log(aa12, 'loglog')
     const monentFun = moment()
     const position = [lat, lng]
     const titleno = houseaddress.map(it => it.properties.no)
@@ -257,7 +257,7 @@ class Elderly extends React.Component {
     }
     return (
       <div>
-        <Helmet title="Dashboard: Crypto" />
+        <Helmet title="ผู้สูงอายุ" />
         <div className="air__utils__heading">
           <h5>ผู้สูงอายุ</h5>
         </div>

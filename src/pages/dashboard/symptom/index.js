@@ -390,7 +390,10 @@ class Symptom extends React.Component {
                       const apex = monentFun.diff(d.birthDate, 'years')
                       if (apex >= 1) {
                         aa123 = (
-                          <Button onClick={() => this.setStore(d)} style={{ width: 220 }}>
+                          <Button
+                            onClick={() => this.setStore(d)}
+                            style={{ width: 220, height: 50 }}
+                          >
                             {d.firstname}&nbsp;{d.lastname}&nbsp;อายุ&nbsp;
                             {apex}&nbsp;ปี
                           </Button>

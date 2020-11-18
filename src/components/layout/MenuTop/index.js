@@ -334,16 +334,16 @@ class MenuTop extends React.Component {
                   </a>
                 </li>
                 {items}
-                {/* <li className={style.air__menuTop__item}>
-                  <Link
-                    to="/system/login"
+                <li className={style.air__menuTop__item}>
+                  <a
+                    href="https://ffc.in.th/Use/"
                     className={style.air__menuTop__link}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <span>Map</span>
-                  </Link>
-                </li> */}
+                    <span>How to use</span>
+                  </a>
+                </li>
                 <li className={style.air__menuTop__item}>
                   <a
                     href="https://download.ffc.in.th/"

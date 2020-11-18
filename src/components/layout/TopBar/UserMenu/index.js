@@ -33,12 +33,12 @@ class ProfileMenu extends React.Component {
 
   render() {
     if (this.redirectToReferrer) {
-      return <Redirect to="https://ffc.in.th/console" />
+      return <Redirect to="https://www.ffc.in.th/" />
     }
     const menu = (
       <Menu selectable={false}>
         <Menu.Item>
-          <a href="https://ffc.in.th/console" onClick={this.logout}>
+          <a href="https://www.ffc.in.th/" onClick={this.logout}>
             <i className={`${styles.menuIcon} fe fe-log-out`} />
             Logout
           </a>

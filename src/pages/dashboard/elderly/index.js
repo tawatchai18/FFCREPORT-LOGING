@@ -10,8 +10,8 @@ import FullscreenControl from 'react-leaflet-fullscreen'
 import {
   MapData,
   // CreatData,
-  UserDatamap,
-  houseMap,
+  // UserDatamap,
+  // houseMap,
 } from '../../../components/system/Auth/Login/PostData'
 
 const myIcon = new L.Icon({
@@ -118,32 +118,32 @@ class Elderly extends React.Component {
     localStorage.setItem('userUnit', JSON.stringify(d))
   }
 
-  showDrawer = item => {
-    const data = sessionStorage.getItem('userData')
-    const dataJson = JSON.parse(data)
-    const id = dataJson.user.orgId
-    const houseid = item.properties.id
-    // console.log(item, 'kffk')
-    // console.log('show drawer')
-    // console.log(item.properties.id)
-    this.setState({
-      visible: true,
-      // selectedVillage : item.properties.id
-    })
+  // showDrawer = item => {
+  //   const data = sessionStorage.getItem('userData')
+  //   const dataJson = JSON.parse(data)
+  //   const id = dataJson.user.orgId
+  //   const houseid = item.properties.id
+  //   // console.log(item, 'kffk')
+  //   // console.log('show drawer')
+  //   // console.log(item.properties.id)
+  //   this.setState({
+  //     visible: true,
+  //     // selectedVillage : item.properties.id
+  //   })
 
-    UserDatamap(id, dataJson.token, houseid).then(result => {
-      this.setState({
-        house: result,
-      })
-    })
+  //   UserDatamap(id, dataJson.token, houseid).then(result => {
+  //     this.setState({
+  //       house: result,
+  //     })
+  //   })
 
-    houseMap(id, dataJson.token, houseid).then(result => {
-      this.setState({
-        houseaddress: result.features,
-        // houseaddress: result,
-      })
-    })
-  }
+  //   houseMap(id, dataJson.token, houseid).then(result => {
+  //     this.setState({
+  //       houseaddress: result.features,
+  //       // houseaddress: result,
+  //     })
+  //   })
+  // }
 
   onClose = () => {
     this.setState({
@@ -325,7 +325,7 @@ class Elderly extends React.Component {
                 onMouseOut={e => {
                   e.target.closePopup()
                 }}
-                onClick={() => this.showDrawer(item)}
+                // onClick={() => this.showDrawer(item)}
                 position={[item.geometry.coordinates[1], item.geometry.coordinates[0]]}
                 icon={markerIcon1}
               >

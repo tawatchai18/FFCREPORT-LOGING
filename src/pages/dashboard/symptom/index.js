@@ -359,7 +359,7 @@ class Symptom extends React.Component {
                 onMouseOut={e => {
                   e.target.closePopup()
                 }}
-                onClick={() => this.showDrawer(item)}
+                // onClick={() => this.showDrawer(item)}
                 position={[item.geometry.coordinates[1], item.geometry.coordinates[0]]}
                 icon={markerIcon1}
               >
@@ -375,10 +375,6 @@ class Symptom extends React.Component {
                 <div className="site-drawer-render-in-current-wrapper">
                   <Drawer
                     title={`${titleno} ${titlevillageName}`}
-                    // title={`${houseaddress.no} ${houseaddress.villageName}`}
-                    // title={`${houseaddress.map(obj => obj.no)} ${houseaddress.map(
-                    //   obj => obj.villageName,
-                    // )}`}
                     placement="right"
                     onClose={this.onClose}
                     visible={visible}
@@ -407,25 +403,6 @@ class Symptom extends React.Component {
                         </div>
                       )
                     })}
-                    {/* <span>
-                      {house.map(d => {
-                        return (
-                          <div className="site-drawer-render-in-current-wrapper">
-                            <Row>
-                              <Col>
-                                <Link to="/dashboard/userdetail">
-                                  <Button onClick={() => this.setStore(d)}>
-                                    {d.firstname}&nbsp;{d.lastname}&nbsp;อายุ&nbsp;
-                                    {monentFun.diff(d.birthDate, 'years')}&nbsp;ปี
-                                  </Button>
-                                </Link>
-                              </Col>
-                            </Row>
-                            <Divider />
-                          </div>
-                        )
-                      })}
-                    </span> */}
                   </Drawer>
                 </div>
               </Marker>

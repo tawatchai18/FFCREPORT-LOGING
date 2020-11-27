@@ -50,7 +50,8 @@ class ForgotPassword extends React.Component {
       editeDraggableMarker: true,
       villageDrag: null,
       noDrag: null,
-      idhouse: [],
+      // idhouse: [],
+      datanoLocation: [],
       updatehouse: [],
       dragMarkerLatlng: [13.52, 100],
       draggable: false,
@@ -192,6 +193,7 @@ class ForgotPassword extends React.Component {
   }
 
   showDraggable = item => {
+    console.log(item, 'test')
     const { dragMarkerLatlng } = this.state
     this.setState({
       lat: dragMarkerLatlng[0],
@@ -200,8 +202,9 @@ class ForgotPassword extends React.Component {
       showDraggableMarker: true,
       villageDrag: item.villageName,
       noDrag: item.no,
-      idhouse: item.id,
+      // idhouse: item.id,
       submit: '',
+      datanoLocation: item,
     })
   }
 
@@ -213,7 +216,7 @@ class ForgotPassword extends React.Component {
       lat: d.location.coordinates[1],
       villageDrag: d.villageName,
       noDrag: d.no,
-      idhouse: d,
+      // idhouse: d,
       submit: '',
     })
   }
@@ -278,16 +281,17 @@ class ForgotPassword extends React.Component {
     return window.location.reload()
   }
 
-  submitok = (idhouse, dragMarkerLatlng) => {
+  submitok = (datanoLocation, dragMarkerLatlng) => {
+    console.log(datanoLocation, 'tedst')
     const data = sessionStorage.getItem('userData')
     const dataJson = JSON.parse(data)
     const id = dataJson.user.orgId
-    const houseid = idhouse.id
+    const houseid = datanoLocation.id
     let txt
     // eslint-disable-next-line no-alert
-    if (window.confirm('ต้องการแก้ไขพิกัด')) {
-      txt = 'คุณต้องการแก้ไขพิกัด'
-      editemarker(id, dataJson.token, houseid, idhouse, dragMarkerLatlng).then(
+    if (window.confirm('คุณต้องการเพิ่มพิกัด')) {
+      txt = 'คุณต้องการเพิ่มพิกัด'
+      editemarker(id, dataJson.token, houseid, datanoLocation, dragMarkerLatlng).then(
         result => {
           this.setState({
             updatehouse: result,
@@ -343,6 +347,7 @@ class ForgotPassword extends React.Component {
     // console.log(aa12)
     // const data = aa12.map(item => item.no + item.villageName)
     this.setState({
+      hover: Boolean,
       // namevillagevsnoedite: data,
       functionedite: true,
       functionupdate: false,
@@ -410,7 +415,7 @@ class ForgotPassword extends React.Component {
       editeDraggableMarker,
       villageDrag,
       noDrag,
-      idhouse,
+      // idhouse,
       updatehouse,
       dragMarkerLatlng,
       draggable,
@@ -428,8 +433,9 @@ class ForgotPassword extends React.Component {
       searchedite,
       filtersearchs,
       filtersearchedite,
+      datanoLocation,
     } = this.state
-    console.log(updatehouse, isLoaded, error)
+    console.log(updatehouse, isLoaded, error, 'tetrrrfvuhnkdflnjk')
     // const aa12 = geojson.map(item => item.properties)
     const position = [lat, lng]
     console.log(lat, lng, 'position')
@@ -651,7 +657,7 @@ class ForgotPassword extends React.Component {
                         <p>บ้านเลขที่:{noDrag}</p>
                       </span>
                       <Row>
-                        <Button onClick={() => this.submitok(idhouse, dragMarkerLatlng)}>
+                        <Button onClick={() => this.submitok(datanoLocation, dragMarkerLatlng)}>
                           บันทึก
                         </Button>
                         &nbsp;

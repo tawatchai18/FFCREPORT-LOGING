@@ -116,26 +116,26 @@ export function houseMap(id, token, houseid) {
   })
 }
 
-export function editemarker(id, token, houseid, idhouse, dragMarkerLatlng) {
+export function editemarker(id, token, houseid, datanoLocation, dragMarkerLatlng) {
   return new Promise((resolve, reject) => {
     fetch(`${API}/org/${id}/house/${houseid}`, {
       method: 'PUT',
       body: JSON.stringify({
-        identity: idhouse.identity,
-        people: idhouse.people,
-        haveChronic: idhouse.haveChronic,
-        no: idhouse.no,
-        villageName: idhouse.villageName,
-        villageId: idhouse.villageId,
+        identity: datanoLocation.identity,
+        people: datanoLocation.people,
+        haveChronic: datanoLocation.haveChronic,
+        no: datanoLocation.no,
+        villageName: datanoLocation.villageName,
+        villageId: datanoLocation.villageId,
         location: {
           type: 'Point',
           coordinates: [dragMarkerLatlng.lng, dragMarkerLatlng.lat],
         },
-        link: idhouse.link,
-        imagesUrl: idhouse.imagesUrl,
-        id: idhouse.id,
-        type: idhouse.type,
-        timestamp: idhouse.timestamp,
+        link: datanoLocation.link,
+        imagesUrl: datanoLocation.imagesUrl,
+        id: datanoLocation.id,
+        type: datanoLocation.type,
+        timestamp: datanoLocation.timestamp,
       }),
       headers: new Headers({
         'Content-Type': 'application/json',

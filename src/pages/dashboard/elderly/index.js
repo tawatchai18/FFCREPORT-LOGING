@@ -333,6 +333,9 @@ class Elderly extends React.Component {
                   <span>
                     <p>หมู่บ้าน:{item.properties.villageName}</p>
                     <p>บ้านเลขที่:{item.properties.no}</p>
+                    <p>
+                      {item.geometry.coordinates[1]},{item.geometry.coordinates[0]}
+                    </p>
                     {/* <p>tag:{item.properties.tags}</p> */}
                   </span>
                 </Popup>

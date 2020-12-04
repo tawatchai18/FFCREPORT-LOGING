@@ -15,7 +15,6 @@ import {
   houseMap,
 } from '../../../components/system/Auth/Login/PostData'
 // import 'react-leaflet-fullscreen-control'
-
 // import data1 from './data1'
 
 const myIcon = new L.Icon({

@@ -298,6 +298,7 @@ class DashboardAnalytics extends React.Component {
                   <Chronicpiechart namehospital={hospital} chronic={chronic} submit={submit} />
                 </TabPane>
               </Tabs>
+              <br />
             </div>
           </div>
         </div>

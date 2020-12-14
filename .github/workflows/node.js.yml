@@ -39,13 +39,4 @@ jobs:
         release_name: Release ${{ steps.tag_version.outputs.new_tag }}
         body: ${{ steps.tag_version.outputs.changelog }}
 
-  release-on-push:
-    runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    steps:
-      - uses: rymndhng/release-on-push-action@master
-        with:
-          bump_version_scheme: minor
-          release_body: "When set, adds extra text to body!"
 
